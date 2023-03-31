@@ -30,9 +30,9 @@ Wombat pipeline tools - Annotation quality
 
 :white_check_mark: - good quality annotation
 
-:x: - bad annotation (missing input/output)
+:mag: - annotation partially available (improvement needed)
 
-:mag: - annotation available but has to be improved
+:x: - bad annotation (missing inputs and/or outputs)
 
 <br/>
 
