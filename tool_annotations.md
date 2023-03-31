@@ -19,7 +19,7 @@ Wombat pipeline tools - Annotation quality
 | 15 | run_peptideshaker | [PeptideShaker](https://bio.tools/peptideshaker) or [Peptide-shaker](https://bio.tools/peptide-shaker) | :mag: (many I/O) | :ballot_box_with_check: | - |
 | 16 | peptideshaker_report |[PeptideShaker](https://bio.tools/peptideshaker) | :mag: (many I/O) | :ballot_box_with_check: | - |
 | 17 | flashlfq | [FlashLFQ](https://bio.tools/flashlfq) | :x: | :ballot_box_with_check: | - |
-| 18 | msqrob | [MSqRob](https://bio.tools/msqrob) | :mag: | :ballot_box_with_check: | - |
+| 18 | msqrob | [MSqRob](https://bio.tools/msqrob) | :mag: (missing output format) | :ballot_box_with_check: | - |
 | 19 | comet | [Comet](https://bio.tools/comet) | :white_check_mark: | :ballot_box_with_check: | - |
 | 20 | peptideprophet | [PeptideProphet](https://bio.tools/peptideprophet) | :white_check_mark: | :ballot_box_with_check: | In TPP |
 | 21 | protienprophet | [ProteinProphet](https://bio.tools/proteinprophet) | :white_check_mark: | :ballot_box_with_check: | In TPP |
