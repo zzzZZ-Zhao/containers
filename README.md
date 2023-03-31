@@ -1,5 +1,5 @@
 # containers
-Containers to packagev the required sofwaare to execute CWL. The container will include the following:
+Containers to package the required sofwaare to execute CWL. The container will include the following:
 
 1- raw2mzdb 
 2- mzdb2mgf (not in bio.tools)
