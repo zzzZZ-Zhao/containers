@@ -12,7 +12,7 @@ Wombat pipeline tools - Annotation quality
 | 8 | run_proline | [proline](https://bio.tools/proline) | :x: | :heavy_multiplication_x: | [link](https://github.com/profiproteomics/proline-cli/releases/download/0.2.0-SNAPSHOT-2019-10-04/proline-cli-0.2.0-SNAPSHOT-bin.zip) |
 | 9 | run_polytest | :heavy_multiplication_x: | - | :ballot_box_with_check: | - |
 | 10 | convert_polytest | :heavy_multiplication_x: | - | :ballot_box_with_check:? | - |
-| 11 | sdrf-pipelines  | [sdrf-pipelines](https://bio.tools/sdrf-pipelines) | :white_check_mark: | :ballot_box_with_check: | - |
+| 11 | sdrf-pipelines  | [sdrf-pipelines](https://bio.tools/sdrf-pipelines) | :white_check_mark: (has 2 functions: **conversion, format validation**) | :ballot_box_with_check: | - |
 | 12 | normalyzerde | [normalyzerde](https://bio.tools/:heavy_multiplication_x:rmalyzerde) | :x: | :ballot_box_with_check: | - |
 | 13 | maxquant | [MaxQuant](https://bio.tools/maxquant) | :white_check_mark: | :ballot_box_with_check: | - |
 | 14 | raw2mzml | [ThermoRawFileParser](https://bio.tools/ThermoRawFileParser) | :white_check_mark: | :ballot_box_with_check: | - |
