@@ -1,0 +1,6 @@
+name: mergeoutput
+channels:
+  - conda-forge
+dependencies:
+   - r-dplyr=1.0.9
+

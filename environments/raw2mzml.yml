@@ -1,0 +1,8 @@
+name: raw2mzml
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+   - thermorawfileparser=1.4.0=ha8f3691_0
+

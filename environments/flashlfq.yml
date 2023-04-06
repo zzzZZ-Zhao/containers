@@ -1,0 +1,8 @@
+name: flashlfq
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+   - flashlfq=1.1.1
+

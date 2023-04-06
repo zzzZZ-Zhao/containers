@@ -1,0 +1,33 @@
+Bootstrap: docker
+From: biocontainers/biocontainers:v1.2.0_cv2
+Stage: build
+
+
+%labels
+    Author Nauman Ahmed
+    Version 1.0.0
+    Container Workflomics
+%files
+   ../environments/* /data
+   ../scripts/* /data
+
+%post
+   mkdir /data/environments
+   mkdir /data/scripts
+   mv /data/*.yml /data/environments
+   mv /data/* /data/scripts
+   for envfile in /data/environments/*;do
+      conda env create -f $envfile
+   done
+
+%test
+   grep -q NAME=\"Ubuntu\" /etc/os-release
+   if [ $? -eq 0 ]; then
+      echo "Container base is Ubuntu as expected."
+    else
+      echo "Container base is not Ubuntu."
+      exit 1
+    fi
+
+   
+    

@@ -10,8 +10,8 @@ Containers to package the required sofwaare to execute CWL. The container will i
 <li>config_proline (This is not a tool. It is a set of "sed commands.).</li>
 <li>exp_design_proline(This is not a tool. It is a set of "sed commands.)</li>
 <li>run_proline ( Avaliloble on: https://github.com/profiproteomics/proline-cli/releases/download/0.2.0-SNAPSHOT-2019-10-04/proline-cli-0.2.0-SNAPSHOT-bin.zip)</li>
-<li> run_polytest(Not in bio.tools. Available on bioconda)</li>
-<li>convert_polytest (Not in bio.tools.)</li>
+<li> run_polystest(Not in bio.tools. Available on bioconda)</li>
+<li>convert_polystest (Not in bio.tools.Available on bioconda. However, run_polystest and convert_polystest use different versions. For now, I will istall the newer, i.e. 1.2.2)</li>
 <li>sdrf-pipelines (Available on bioconda)</li>
 <li>normalyzerde (Available on bioconda)</li>
 <li>maxquant (Available on bioconda)</li>
@@ -24,7 +24,7 @@ Containers to package the required sofwaare to execute CWL. The container will i
 <li>peptideprophet (part of tpp tool. Available on bioconda)</li>
 <li>protienprophet (part of tpp tool. Available on bioconda)</li>
 <li>stpeter (part of tpp tool. Available on bioconda)</li>
-<li>proxml2csv</li>
-<li>mergeoutput</li>
-<li>rots</li>
+<li>proxml2csv(An R script)</li>
+<li>mergeoutput(An R script)</li>
+<li>rots(Available on bioconda)</li>
 </ol>
