@@ -1,0 +1,8 @@
+name: msqrob
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+   - r-msqrob=0.7.7
+

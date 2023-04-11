@@ -1,0 +1,8 @@
+name: searchgui
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+   - searchgui=4.0.41
+

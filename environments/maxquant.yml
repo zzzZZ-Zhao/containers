@@ -1,0 +1,8 @@
+name: maxquant
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+   - maxquant=2.0.3.0=py310hdfd78af_1
+
