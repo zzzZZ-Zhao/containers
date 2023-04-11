@@ -1,5 +1,6 @@
+
 # containers
-Containers to package the required sofwaare to execute CWL. The container will include the following:
+Containers to package the required sofware to execute CWL. The container will include the following:
 
 <ol>
 <li>raw2mzdb </li>
