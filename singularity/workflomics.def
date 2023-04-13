@@ -18,7 +18,8 @@ Stage: build
    rm ~/miniconda.sh && chmod 777 -R /opt/conda
    conda update conda
    conda --version
-   
+   pip install cwlref-runner
+   exit 1
    for file in /data/environments/*;do
       conda env create -f $file
    done
