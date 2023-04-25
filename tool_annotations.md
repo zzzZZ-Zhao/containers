@@ -13,7 +13,7 @@ Wombat pipeline tools - Annotation quality
 | 9 | run_polytest | :heavy_multiplication_x: | - | :ballot_box_with_check: | - |
 | 10 | convert_polytest | :heavy_multiplication_x: | - | :ballot_box_with_check:? | - |
 | 11 | sdrf-pipelines  | [sdrf-pipelines](https://bio.tools/sdrf-pipelines) | :white_check_mark: (has 2 functions: **conversion, format validation**) | :ballot_box_with_check: | - |
-| 12 | normalyzerde | [normalyzerde](https://bio.tools/:heavy_multiplication_x:rmalyzerde) | :x: | :ballot_box_with_check: | - |
+| 12 | normalyzerde | [normalyzerde](https://bio.tools/normalyzerde) | :mag: | :ballot_box_with_check: | - |
 | 13 | maxquant | [MaxQuant](https://bio.tools/maxquant) | :white_check_mark: | :ballot_box_with_check: | - |
 | 14 | raw2mzml | [ThermoRawFileParser](https://bio.tools/ThermoRawFileParser) | :white_check_mark: | :ballot_box_with_check: | - |
 | 15 | run_peptideshaker | [PeptideShaker](https://bio.tools/peptideshaker) or [Peptide-shaker](https://bio.tools/peptide-shaker) | :mag: (many I/O) | :ballot_box_with_check: | - |
