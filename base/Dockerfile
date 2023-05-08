@@ -28,7 +28,7 @@ deb mirror://mirrors.ubuntu.com/mirrors.txt focal-security main restricted unive
 RUN apt-get clean all && \
     apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y  \
+    apt-get install -y  --no-install-recommends \
         curl            \
         grep            \
         sed             \

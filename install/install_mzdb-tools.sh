@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Installing mzdb-tools"
+
 INSTALL_DIR=/usr/local
 
 mkdir $INSTALL_DIR/mzdb-tools ; cd $INSTALL_DIR/mzdb-tools; 
