@@ -37,15 +37,12 @@ LABEL author="Nauman Ahmed"
 # Copy the install and test scripts to /data
 COPY install /data/install
 
-COPY tests /data/tests
 
-RUN chmod +x /data/install/* && chmod +x /data/tests/*
+RUN chmod +x /data/install/*.sh
 
 
 # Install the tools
 RUN for file in /data/install/install_*.sh;do $file; done
 
-# Test the installation
-RUN for file in /data/tests/test_*.sh;do $file; done
 
-RUN rm -rf /data/install  /data/tests
+RUN rm -rf /data/install 

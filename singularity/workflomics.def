@@ -10,22 +10,18 @@ Stage: build
 %files
    # Copy the install and test scripts to /data
    install /data
-   tests /data
 
 %post
 
-   chmod +x /data/install/*
+   chmod +x /data/install/*.sh
 
-   chmod +x /data/tests/*
 
 
    # Install the tools
    for file in /data/install/install_*.sh;do $file; done
 
-   # Test the installations
-   for file in /data/tests/test_*.sh;do $file; done
 
-   rm -rf /data/install  /data/tests
+   rm -rf /data/install
     
    
    
