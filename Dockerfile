@@ -37,15 +37,16 @@ LABEL author="Nauman Ahmed"
 # Copy the install and test scripts to /data
 COPY install /data/install
 
-COPY tests /data/tests
+COPY scripts /usr/local/scripts
 
-RUN chmod +x /data/install/* && chmod +x /data/tests/*
+RUN chmod +x /data/install/*.sh && chmod +x /usr/local/scripts/*  && export PATH=$PATH:/usr/local/scripts
+
+
+# Required tools
+ARG tools="mzdb-tools tpp maxquant msqrob sdrf-pipelines raw2mzml comet-ms"
 
 
 # Install the tools
-RUN for file in /data/install/install_*.sh;do $file; done
+RUN  for a in $tools;do /data/install/install_$a.sh; done
 
-# Test the installation
-#RUN for file in /data/tests/test_*.sh;do $file; done
-
-RUN rm -rf /data/install /data/tests
+RUN rm -rf /data/install 

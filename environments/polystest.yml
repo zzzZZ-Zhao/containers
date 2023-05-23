@@ -1,8 +1,0 @@
-name: polystest
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-   - polystest=1.2.2
-

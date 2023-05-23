@@ -9,7 +9,9 @@ echo "Installing TPP 5.2"
 
 INSTALL_DIR=/usr/local
 
-apt -y install gnuplot unzip libexpat1 libexpat1-dev apache2 xsltproc nano vim && apt clean all 
+apt -y update && apt -y upgrade && apt install -y --no-install-recommends gnuplot unzip libexpat1 libexpat1-dev apache2 xsltproc nano vim && apt-get clean && \
+        apt-get purge && \
+        rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 export PERL_MM_USE_DEFAULT=1 && cpan install CGI XML::Parser FindBin::libs JSON 
 
@@ -23,5 +25,5 @@ cd $INSTALL_DIR/tpp/conf &&  a2enmod rewrite && a2enmod cgid && cat httpd-2.4-tp
 
 # set environment variables
 echo PERL5LIB="${INSTALL_DIR}/tpp/lib/perl" >>/etc/environment
-echo PATH="${INSTALL_DIR}/tpp/bin/:/usr/local/tpp/cgi-bin/:${PATH}" >>/etc/environment
+sed -i '/PATH/s/"$/:${INSTALL_DIR}\/tpp\/bin\/:\/usr\/local\/tpp\/cgi-bin"/' /etc/environment
 #echo PATH="/opt/conda/envs/wombatp-tpp/bin:${PATH}" >>/etc/environment

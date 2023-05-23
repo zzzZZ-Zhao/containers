@@ -1,8 +1,0 @@
-name: comet-ms
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-   - comet-ms=2021010=h87f3376_1
-

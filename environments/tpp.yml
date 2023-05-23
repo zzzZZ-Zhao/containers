@@ -1,8 +1,0 @@
-name: tpp
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-   - tpp=5.0.0=pl5.22.0_0
-
