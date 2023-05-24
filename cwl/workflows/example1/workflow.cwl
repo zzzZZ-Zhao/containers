@@ -5,24 +5,23 @@ class: Workflow
 
 label: WorkflowNo_0
 doc: A workflow including the tool(s) Comet, PeptideProphet, ProteinProphet.
-
 inputs:
   input1:
     type: File
-    #format: "http://edamontology.org/format_3244" # mzML
+    format: "http://edamontology.org/format_3244" # mzML
   input2:
     type: File
-    #format: "http://edamontology.org/format_1929" # FASTA
+    format: "http://edamontology.org/format_1929" # FASTA
 steps:
   Comet1:
-    run: Comet.cwl
+    run: /cwl/tools/Comet/Comet.cwl
     in:
       Comet_in_1: input1
       Comet_in_2: input2
     #out: [Comet_out_1, Comet_out_2]
     out: [Comet_out_1]
   PeptideProphet2:
-    run: PeptideProphet.cwl
+    run: /cwl/tools/PeptideProphet/PeptideProphet.cwl
     in:
       PeptideProphet_in_1: Comet1/Comet_out_1
     #out: [PeptideProphet_out_1, PeptideProphet_out_2]
@@ -40,5 +39,5 @@ steps:
 outputs:
   output1:
     type: File
-    #format: "http://edamontology.org/format_3655" # pepXML
+    format: "http://edamontology.org/format_3655" # pepXML
     outputSource: PeptideProphet2/PeptideProphet_out_1

@@ -25,5 +25,5 @@ cd $INSTALL_DIR/tpp/conf &&  a2enmod rewrite && a2enmod cgid && cat httpd-2.4-tp
 
 # set environment variables
 echo PERL5LIB="${INSTALL_DIR}/tpp/lib/perl" >>/etc/environment
-sed -i '/PATH/s/"$/:${INSTALL_DIR}\/tpp\/bin\/:\/usr\/local\/tpp\/cgi-bin"/' /etc/environment
+sed -i '/PATH/s/"$/:'"${INSTALL_DIR}"'\/tpp\/bin\/:\/usr\/local\/tpp\/cgi-bin"/' /etc/environment
 #echo PATH="/opt/conda/envs/wombatp-tpp/bin:${PATH}" >>/etc/environment

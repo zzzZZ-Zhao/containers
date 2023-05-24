@@ -43,7 +43,7 @@ RUN chmod +x /data/install/*.sh && chmod +x /usr/local/scripts/*  && export PATH
 
 
 # Required tools
-ARG tools="mzdb-tools tpp maxquant msqrob sdrf-pipelines raw2mzml comet-ms"
+ARG tools="mzdb-tools tpp maxquant msqrob sdrf-pipelines raw2mzml comet-ms cwlrunner"
 
 
 # Install the tools
