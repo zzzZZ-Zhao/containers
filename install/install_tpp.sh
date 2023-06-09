@@ -9,8 +9,8 @@ apt -y update && apt -y upgrade && apt install -y --no-install-recommends g++ pe
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # export PERL_MM_USE_DEFAULT=1 && cpan install CGI XML::Parser FindBin::libs JSON 
+wget -O TPP_6.3.2-src.tgz https://sourceforge.net/projects/sashimi/files/Trans-Proteomic%20Pipeline%20%28TPP%29/TPP%20v6.3%20%28Arcus%29%20rev%202/TPP_6.3.2-src.tgz/download?use_mirror=deac-ams
 
-wget -O TPP_6.3.2-src.tgz https://sourceforge.net/projects/sashimi/files/Trans-Proteomic%20Pipeline%20%28TPP%29/TPP%20v6.3%20%28Arcus%29%20rev%202/TPP_6.3.2-src.tgz/download
 tar -xf TPP_6.3.2-src.tgz
 cd release_6-3-2
 make all
