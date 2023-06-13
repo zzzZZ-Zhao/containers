@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["conda", "run", "--no-capture-output", "-ncomet-ms", "comet", "-P/cwl/tools/Comet/comet.params"]
+baseCommand: ["/usr/local/tpp/bin/comet", "-P/cwl/tools/Comet/comet.params"]
 label: comet-ms
 # requirements:
 #   InlineJavascriptRequirement: {}
@@ -32,4 +32,3 @@ outputs:
       outputBinding:
         glob: "*.pep.xml"
       
-    

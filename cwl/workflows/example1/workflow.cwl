@@ -24,6 +24,7 @@ steps:
     run: /cwl/tools/PeptideProphet/PeptideProphet.cwl
     in:
       PeptideProphet_in_1: Comet1/Comet_out_1
+      PeptideProphet_in_2: input2
     #out: [PeptideProphet_out_1, PeptideProphet_out_2]
     out: [PeptideProphet_out_1]
 #   ProteinProphet3:
