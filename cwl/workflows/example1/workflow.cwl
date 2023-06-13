@@ -27,18 +27,14 @@ steps:
       PeptideProphet_in_2: input2
     #out: [PeptideProphet_out_1, PeptideProphet_out_2]
     out: [PeptideProphet_out_1]
-#   ProteinProphet3:
-#     run: ProteinProphet.cwl
-#     in:
-#       ProteinProphet_in_1: PeptideProphet2/PeptideProphet_out_1
-#     out: [ProteinProphet_out_1, ProteinProphet_out_2]
-# outputs:
-#   output1:
-#     type: File
-#     format: "http://edamontology.org/format_3468" # xls
-#     outputSource: ProteinProphet3/ProteinProphet_out_1
+  ProteinProphet3:
+    run: /cwl/tools/ProteinProphet/ProteinProphet.cwl
+    in:
+      ProteinProphet_in_1: PeptideProphet2/PeptideProphet_out_1
+    out: [ProteinProphet_out_1]
 outputs:
   output1:
     type: File
-    format: "http://edamontology.org/format_3655" # pepXML
-    outputSource: PeptideProphet2/PeptideProphet_out_1
+    format: http://edamontology.org/format_3475 # ProteinProphet promises xls, but actual output is TSV!
+    outputSource: ProteinProphet3/ProteinProphet_out_1
+    
