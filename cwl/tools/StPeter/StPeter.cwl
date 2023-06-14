@@ -15,5 +15,10 @@ outputs:
      format: "http://edamontology.org/format_3747" # protXML
      outputBinding:
        glob: ../..$(inputs.StPeter_in_1.path)
+   StPeter_out_2: 
+     type: File
+     format: "http://edamontology.org/format_3747" # protXML
+     outputBinding:
+       glob: ../..$(inputs.StPeter_in_1.path)
 
         

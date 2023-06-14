@@ -19,15 +19,15 @@ steps:
     in:
       Comet_in_1: input1
       Comet_in_2: input2
-    #out: [Comet_out_1, Comet_out_2]
-    out: [Comet_out_1]
+    out: [Comet_out_1, Comet_out_2]
+    #out: [Comet_out_1]
   PeptideProphet2:
     run: /cwl/tools/PeptideProphet/PeptideProphet.cwl
     in:
       PeptideProphet_in_1: Comet1/Comet_out_1
-      PeptideProphet_in_2: input2
-     #out: [PeptideProphet_out_1, PeptideProphet_out_2]
-    out: [PeptideProphet_out_1]
+      #PeptideProphet_in_2: input2
+    out: [PeptideProphet_out_1, PeptideProphet_out_2]
+    #out: [PeptideProphet_out_1]
   ProteinProphet3:
     run: /cwl/tools/ProteinProphet/ProteinProphet.cwl
     in:
@@ -38,8 +38,8 @@ steps:
     in:
       #StPeter_in_1: ProteinProphet3/ProteinProphet_out_1
       StPeter_in_1: ProteinProphet3/ProteinProphet_out_2
-    #out: [StPeter_out_1, StPeter_out_2]
-    out: [StPeter_out_1]
+    out: [StPeter_out_1, StPeter_out_2]
+    #out: [StPeter_out_1]
 outputs:
   output1:
     type: File
