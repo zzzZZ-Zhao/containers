@@ -9,20 +9,20 @@ git checkout docker
 docker build -t workflomics_v1.0 -f docker/Dockerfile .
 
 ```
-## Running an example CWL workflow
+## Running an example CWL workflows
 
-Copy workflows and input data to docker volumes
+Enable file sharing for the `data` and `cwl` directory. With Docker Desktop dashboard this could be achived with Settings -> Resources -> File sharing   
 
-```
-docker volume create cwl_workflomics
-docker volume create data_workflomics
-docker run -v cwl_workflomics:/cwl -v data_workflomics:/data --name helper busybox true
-docker cp ./data/inputs helper:/data/inputs
-docker cp ./cwl/tools helper:/cwl/tools
-docker cp ./cwl/workflows helper:/cwl/workflows
-```
+
 Run the CWL workflow inside the container
 
+Example 1: Comet -> PeptideProphet -> ProteinProphet
+
 ```
-docker run -v cwl_workflomics:/cwl -v data_workflomics:/data  workflomics_v1.0 cwl-runner --outdir /data/output /cwl/workflows/example1/workflow.cwl /cwl/workflows/example1/inp.yml
+docker run -v ./cwl:/cwl -v ./data:/data  workflomics_v1.0 cwl-runner --leave-tmpdir --outdir /data/output /cwl/workflows/example1/workflow.cwl /cwl/workflows/example1/inp.yml
+```
+Example 2:  Comet -> PeptideProphet -> ProteinProphet -> StPeter
+
+```
+docker run -v ./cwl:/cwl -v ./data:/data  workflomics_v1.0 cwl-runner --leave-tmpdir --outdir /data/output /cwl/workflows/example2/workflow.cwl /cwl/workflows/example2/inp.yml
 ```
