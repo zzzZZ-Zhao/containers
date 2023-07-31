@@ -1,8 +1,0 @@
-name: rots
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-   - bioconductor-rots=1.22.0
-

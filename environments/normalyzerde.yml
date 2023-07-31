@@ -1,8 +1,0 @@
-name: bioconductor-normalyzerde
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-   - bioconductor-normalyzerde=1.16.0
-
