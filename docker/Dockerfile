@@ -39,14 +39,20 @@ COPY install /data/install
 
 COPY scripts /usr/local/scripts
 
-RUN chmod +x /data/install/*.sh && chmod +x /usr/local/scripts/*  && export PATH=$PATH:/usr/local/scripts
-
 
 # Required tools
 ARG tools="mzdb-tools tpp maxquant msqrob sdrf-pipelines raw2mzml cwlrunner"
 
 
 # Install the tools
-RUN  for a in $tools;do /data/install/install_$a.sh; done
+RUN for tool in $tools;do chmod +x /data/install/install_$tool.sh &&  /data/install/install_$tool.sh; done
+
+# Install the scripts
+RUN for script in /usr/local/scripts/*;do chmod +x $script; done
+
+# Add the scripts to the path
+ENV PATH="${PATH}:/usr/local/scripts"
+
+
 
 RUN rm -rf /data/install 
