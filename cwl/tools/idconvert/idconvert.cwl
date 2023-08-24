@@ -18,5 +18,5 @@ outputs:
     type: File
     format: "http://edamontology.org/format_3247" # mzIdentML
     outputBinding:
-      glob: "*.mzID"
+      glob: "*.mzid"
 
