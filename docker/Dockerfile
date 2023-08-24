@@ -16,8 +16,7 @@ LABEL about.tags="Genomics,Proteomics,Transcriptomics,General,Metabolomics"
 ################## Author ######################
 LABEL author="Nauman Ahmed"
 
-
-RUN apt -y update && apt -y upgrade && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+################## INSTALLATION ######################
 
 # Copy the install and test scripts to /data
 COPY install /data/install
@@ -26,9 +25,8 @@ COPY scripts /usr/local/scripts
 
 
 # Required tools
-#ARG tools="mzdb-tools tpp maxquant msqrob sdrf-pipelines raw2mzml cwlrunner mzrecal goenrichment"
-#ARG tools="tpp cwlrunner"
-ARG tools="goenrichment"
+#ARG tools="mzdb-tools tpp maxquant msqrob sdrf-pipelines raw2mzml cwlrunner mzrecal goenrichment protxml2idlist"
+ARG tools="cwlrunner goenrichment mzrecal protxml2idlist tpp"
 
 
 # Install the tools
