@@ -23,5 +23,5 @@ outputs:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
     outputBinding:
-      glob: "*.[mM][zZ][mM][lL]"
+      glob: "*.mzml"
 
