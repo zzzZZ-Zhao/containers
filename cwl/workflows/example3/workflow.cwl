@@ -15,23 +15,23 @@ inputs:
     format: "http://edamontology.org/format_1929" # FASTA
 steps:
   Comet1:
-    run: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/Comet/Comet.cwl
+    run: https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/Comet/Comet.cwl
     in:
       Comet_in_1: input1
       Comet_in_2: input2
     out: [Comet_out_1]
   PeptideProphet2:
-    run: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/PeptideProphet/PeptideProphet.cwl
+    run: https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/PeptideProphet/PeptideProphet.cwl
     in:
       PeptideProphet_in_1: Comet1/Comet_out_1
     out: [PeptideProphet_out_1]
   ProteinProphet3:
-    run: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/ProteinProphet/ProteinProphet.cwl
+    run: https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/ProteinProphet/ProteinProphet.cwl
     in:
       ProteinProphet_in_1: PeptideProphet2/PeptideProphet_out_1
     out: [ProteinProphet_out_1]
   protXml2IdList4:
-    run: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/protXml2IdList/protXml2IdList.cwl
+    run: https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/protXml2IdList/protXml2IdList.cwl
     in:
       protXml2IdList_in_1: ProteinProphet3/ProteinProphet_out_1
     out: [protXml2IdList_out_1]
