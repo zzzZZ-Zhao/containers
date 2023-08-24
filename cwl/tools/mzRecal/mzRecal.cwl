@@ -27,5 +27,5 @@ outputs:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
     outputBinding:
-      glob: "*.mzML"
+      glob: "output.mzML"
 
