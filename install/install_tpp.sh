@@ -4,7 +4,7 @@ echo "Installing TPP 6.3"
 
 INSTALL_DIR=/usr/local
 
-apt install -y --no-install-recommends g++ perl libcgi-pm-perl libio-compress-perl libxml-parser-perl libgd-dev libpng-dev zlib1g-dev libbz2-dev gnuplot unzip libexpat1 libexpat1-dev apache2 xsltproc nano vim && apt-get clean && \
+apt -y update && apt -y upgrade && apt install -y --no-install-recommends g++ perl libcgi-pm-perl libio-compress-perl libxml-parser-perl libgd-dev libpng-dev zlib1g-dev libbz2-dev gnuplot unzip libexpat1 libexpat1-dev apache2 xsltproc nano vim && apt-get clean && \
         apt-get purge && \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
