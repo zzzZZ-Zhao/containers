@@ -35,7 +35,7 @@ inputs:
     type: File
     format: "http://edamontology.org/format_3747" # protXML
     inputBinding:
-      position: 2
+      position: 1
 
 outputs:
   protXml2IdList_out_1:
