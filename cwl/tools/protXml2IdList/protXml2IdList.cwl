@@ -4,7 +4,7 @@ cwlVersion: v1.0
 class: CommandLineTool
 label: protXml2IdList.cwl
 
-baseCommand: ["xmllint", "--xpath",  "\"//*[local-name()='protein']/@protein_name\""]
+baseCommand: ["conda", "run" , "-n", "protxml2idlist","xmllint", "--xpath",  "\"//*[local-name()='protein']/@protein_name\""]
 
 
 arguments:
@@ -20,10 +20,9 @@ inputs:
 
 outputs:
   protXml2IdList_out_1:
-    type: stdout
-    #type: File
-    #format: "http://edamontology.org/format_2330" # Textual format
-    #outputBinding:
-      #glob: '*.txt'
+    type: File
+    format: "http://edamontology.org/format_2330" # Textual format
+    outputBinding:
+      glob: '*.txt'
       
 

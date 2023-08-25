@@ -29,6 +29,8 @@ COPY scripts /usr/local/scripts
 ARG tools="cwlrunner goenrichment mzrecal protxml2idlist tpp"
 
 
+
+
 # Install the tools
 RUN for tool in $tools;do chmod +x /data/install/install_$tool.sh &&  /data/install/install_$tool.sh; done
 
