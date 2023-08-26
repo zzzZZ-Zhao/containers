@@ -1,18 +1,17 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["/usr/local/tpp/bin/comet", "-P/cwl/tools/Comet/comet.params"]
+baseCommand: ["wget", "https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/Comet/comet.params" , "&&", "/usr/local/tpp/bin/comet", "-Pcomet.params"]
 label: comet-ms
-# requirements:
-#   InlineJavascriptRequirement: {}
 arguments:
   - valueFrom: $(inputs.Comet_in_1.nameroot)
     prefix: -N
     position : 1
     separate: false
-
 inputs:
   Comet_in_1:
     type: File
+    secondaryFiles:
+      - "http://edamontology.org/format_3244"
     format: "http://edamontology.org/format_3244" # mzML
     inputBinding:
       position: 3
