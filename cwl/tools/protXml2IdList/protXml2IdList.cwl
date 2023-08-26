@@ -4,9 +4,9 @@ cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["conda", "run" , "-n", "protxml2idlist","xmllint", "--xpath",  "//*[local-name()='protein']/@protein_name"]
 arguments:
-- position: 2
 - valueFrom: "| cut -d '|' -f2 > output.txt"
-- shellQuote: false
+  position: 2 
+  shellQuote: false
 
 inputs:
   protXml2IdList_in_1:
