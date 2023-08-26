@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["wget", "https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/Comet/comet.params" , "&&", "/usr/local/tpp/bin/comet", "-Pcomet.params"]
+baseCommand: ["wget", "https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/Comet/comet.params&&", "/usr/local/tpp/bin/comet", "-Pcomet.params"]
 label: comet-ms
 arguments:
   - valueFrom: $(inputs.Comet_in_1.nameroot)
