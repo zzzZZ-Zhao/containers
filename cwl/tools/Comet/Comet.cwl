@@ -10,8 +10,6 @@ arguments:
 inputs:
   Comet_in_1:
     type: File
-    secondaryFiles:
-      - "http://edamontology.org/format_3244"
     format: "http://edamontology.org/format_3244" # mzML
     inputBinding:
       position: 3
