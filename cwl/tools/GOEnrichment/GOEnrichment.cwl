@@ -31,5 +31,5 @@ outputs:
     type: File
     format: "http://edamontology.org/format_2330" # Textual format
     outputBinding:
-      glob: "*.txt"
+      glob: "MF_result.txt"
 
