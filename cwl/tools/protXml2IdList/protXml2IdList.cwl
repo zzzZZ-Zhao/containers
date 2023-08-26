@@ -3,8 +3,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["bash", "/cwl/tools/protXml2IdList/protXml2IdList.sh"]
-#requirements:
- # ShellCommandRequirement: {}
 inputs:
   protXml2IdList_in_1:
     type: File
