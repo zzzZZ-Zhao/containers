@@ -6,7 +6,6 @@ label: XTandem.cwl
 baseCommand: ["mkdir", "/tmp/Xtandem"]
 requirements:
     ShellCommandRequirement:{}
-
 arguments:
     - valueFrom:    "&& wget -O /tmp/Xtandem/tandem.params https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/XTandem/tandem.params && \
                     && wget  -O /tmp/Xtandem/taxonomy.xml https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/XTandem/taxonomy.xml &&"

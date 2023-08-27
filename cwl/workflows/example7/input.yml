@@ -1,8 +1,8 @@
-input1:
-  class: File
-  format: "http://edamontology.org/format_3244" # mzML
-  path: set_full_path_to_the_file_with_extension_here
-input2:
-  class: File
-  format: "http://edamontology.org/format_1929" # FASTA
-  path: set_full_path_to_the_file_with_extension_here
+input1:  # type 'File'
+    class: File
+    path: /data/inputs/2021-10-8_Ecoli.mzML
+    format: http://edamontology.org/format_3244
+input2:  # type 'File'
+    class: File
+    path: /data/inputs/up00000062.fasta
+    format: http://edamontology.org/format_1929
