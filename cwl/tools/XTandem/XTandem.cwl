@@ -3,12 +3,12 @@
 cwlVersion: v1.0
 class: CommandLineTool
 label: XTandem.cwl
-baseCommand: ["mkdir", "/tmp/Xtandem"]
+baseCommand: ["mkdir", "/tmp/XTandem"]
 requirements:
   ShellCommandRequirement: {}
 arguments:
-    - valueFrom:    "&& wget -O /tmp/Xtandem/tandem.params https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/XTandem/tandem.params && \
-                    wget  -O /tmp/Xtandem/taxonomy.xml https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/XTandem/taxonomy.xml &&"
+    - valueFrom:    "&& wget -O /tmp/XTandem/tandem.params https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/XTandem/tandem.params && \
+                    wget  -O /tmp/XTandem/taxonomy.xml https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/XTandem/taxonomy.xml &&"
       position: 1
       shellQuote: false
     - valueFrom:    "cp"
@@ -17,7 +17,7 @@ arguments:
     - valueFrom:    $(inputs.XTandem_in_1.path)
       position: 3
       shellQuote: false
-    - valueFrom:    "/tmp/Xtandem/mzmlFile.mzML"
+    - valueFrom:    "/tmp/XTandem/mzmlFile.mzML"
       position: 4
       shellQuote: false
     - valueFrom:    "&& cp"
@@ -26,7 +26,7 @@ arguments:
     - valueFrom: $(inputs.XTandem_in_2.path)
       position: 6
       shellQuote: false
-    - valueFrom:    "/tmp/Xtandem/fastaFile.fasta"
+    - valueFrom:    "/tmp/XTandem/fastaFile.fasta"
       position: 7
       shellQuote: false
     - valueFrom:    "&& /usr/local/tpp/bin/tandem /tmp/XTandem/tandem.params && \
