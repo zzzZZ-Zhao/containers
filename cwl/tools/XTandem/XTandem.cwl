@@ -1,23 +1,50 @@
+#!/usr/bin/env cwl-runner
+
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["mkdir"]
+label: XTandem.cwl
+baseCommand: ["mkdir", "/tmp/Xtandem"]
 requirements:
-  ShellCommandRequirement: {}
-arguments:
-- valueFrom: "| cut -d '|' -f2 > output.txt"
-  position: 2
-  shellQuote: false
+    ShellCommandRequirement:{}
 
-inputs:
-  protXml2IdList_in_1:
-    type: File
-    format: "http://edamontology.org/format_3747" # protXML
-    inputBinding:
+arguments:
+    - valueFrom:    "&& wget -O /tmp/Xtandem/tandem.params https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/XTandem/tandem.params && \
+                    && wget  -O /tmp/Xtandem/taxonomy.xml https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/XTandem/taxonomy.xml &&"
       position: 1
+      shellQuote: false
+    - valueFrom:    "cp"
+      position: 2
+      shellQuote: false
+    - valueFrom:    $(inputs.XTandem_in_1.path)
+      position: 3
+      shellQuote: false
+    - valueFrom:    "/tmp/Xtandem/mzmlFile.mzML"
+      position: 4
+      shellQuote: false
+    - valueFrom:    "&& cp"
+      position: 5
+      shellQuote: false
+    - valueFrom: $(inputs.XTandem_in_2.path)
+      position: 6
+      shellQuote: false
+    - valueFrom:    "/tmp/Xtandem/fastaFile.fasta"
+      position: 7
+      shellQuote: false
+    - valueFrom:    "&& /usr/local/tpp/bin/tandem /tmp/XTandem/tandem.params && \
+                    /usr/local/tpp/bin/Tandem2XML /tmp/XTandem/tandemFile.tandem > output.pep.xml"
+      position: 8
+      shellQuote: false
+inputs:
+  XTandem_in_1:
+    type: File
+    format: "http://edamontology.org/format_3244" # mzML
+  XTandem_in_2:
+    type: File
+    format: "http://edamontology.org/format_1929" # FASTA
 
 outputs:
-  protXml2IdList_out_1:
+  XTandem_out_1:
     type: File
-    format: "http://edamontology.org/format_2330" # Textual format
+    format: "http://edamontology.org/format_3247" # mzIdentML
     outputBinding:
-      glob: "output.txt"
+      glob: "output.pep.xml"
