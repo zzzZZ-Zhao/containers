@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="tandem-input-style.xsl"?>
 <bioml>
-   <note type="input" label="list path, taxonomy information">h:/workflomics/taxonomy.xml</note>
+   <note type="input" label="list path, taxonomy information">/cwl/tools/XTandem/taxonomy.xml</note>
    <note type="input" label="protein, taxon">mydatabase</note>
-   <note type="input" label="spectrum, path">h:/workflomics/140131.LC2.IT2.XX.P01347_2-C,6_01_5970.mzML</note>
-   <note type="input" label="output, path">h:/workflomics/140131.LC2.IT2.XX.P01347_2-C,6_01_5970.tandem</note>
+   <note type="input" label="spectrum, path">/cwl/tools/XTandem/mzmlFile.mzML</note>
+   <note type="input" label="output, path">/cwl/tools/XTandem/tandemFile.tandem</note>
  
 
 
