@@ -19,15 +19,16 @@ inputs:
 
 outputs:
     ProteinProphet_out_1: 
-      type: File
-      format: http://edamontology.org/format_3475 # ProteinProphet promises xls, but actual output is TSV!
-      outputBinding:
-        glob: "*.xls"
-    ProteinProphet_out_2: 
      type: File
      format: "http://edamontology.org/format_3747" # protXML
      outputBinding:
        glob: "*.protXML"
+    ProteinProphet_out_2: 
+      type: File
+      format: http://edamontology.org/format_3475 # ProteinProphet promises xls, but actual output is TSV!
+      outputBinding:
+        glob: "*.xls"
+
 
         
 

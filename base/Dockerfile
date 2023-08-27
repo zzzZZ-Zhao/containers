@@ -61,7 +61,7 @@ RUN mkdir /data && mkdir /cwl
 
 ENV PATH=$PATH:/opt/conda/bin
 
-RUN conda update conda
+#RUN conda update conda
 
 VOLUME ["/data", "/cwl"]
 
