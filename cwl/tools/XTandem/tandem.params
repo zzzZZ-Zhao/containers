@@ -4,7 +4,7 @@
    <note type="input" label="list path, taxonomy information">/tmp/XTandem/taxonomy.xml</note>
    <note type="input" label="protein, taxon">mydatabase</note>
    <note type="input" label="spectrum, path">/tmp/XTandem/mzmlFile.mzML</note>
-   <note type="input" label="output, path">tandemFile.tandem</note>
+   <note type="input" label="output, path">/tmp/XTandem/tandemFile.tandem</note>
  
 
 

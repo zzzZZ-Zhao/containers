@@ -29,8 +29,8 @@ arguments:
     - valueFrom:    "/tmp/XTandem/fastaFile.fasta"
       position: 7
       shellQuote: false
-    - valueFrom:    "&& /usr/local/tpp/bin/tandem /tmp/XTandem/tandem.params" #&& \
-                    #/usr/local/tpp/bin/Tandem2XML /tmp/XTandem/tandemFile.tandem > output.pep.xml"
+    - valueFrom:    "&& /usr/local/tpp/bin/tandem /tmp/XTandem/tandem.params && \
+                    /usr/local/tpp/bin/Tandem2XML /tmp/XTandem/tandemFile.tandem > output.pep.xml"
       position: 8
       shellQuote: false
 inputs:
@@ -46,4 +46,4 @@ outputs:
     type: File
     format: "http://edamontology.org/format_3247" # mzIdentML
     outputBinding:
-      glob: "tandemFile.tandem"
+      glob: " output.pep.xml"
