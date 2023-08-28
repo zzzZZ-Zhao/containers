@@ -8,13 +8,13 @@ arguments:
       position: 1
       shellQuote: false
 inputs:
-  input_file:
+  gProfiler_in_1:
     type: File
     doc: "Input file containing gene/query data"
     inputBinding:
       position: 2
 outputs:
-  output_file:
+  gProfiler_out_1:
     type: File
     doc: "Output file containing the result of the curl command"
     outputBinding:
