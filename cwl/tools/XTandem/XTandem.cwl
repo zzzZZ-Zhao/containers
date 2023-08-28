@@ -46,4 +46,4 @@ outputs:
     type: File
     format: "http://edamontology.org/format_3247" # mzIdentML
     outputBinding:
-      glob: "output.pep.xml"
+      glob: "/tmp/XTandem/tandemFile.tandem"
