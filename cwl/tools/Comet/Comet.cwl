@@ -26,7 +26,6 @@ inputs:
     format: "http://edamontology.org/format_3244" # mzML
     inputBinding:
       position: 4
-      separate: false
       valueFrom: $(self.basename)
   Comet_in_2:
     type: File
