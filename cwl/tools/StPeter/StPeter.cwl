@@ -2,6 +2,9 @@ cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: "/usr/local/tpp/bin/StPeter"
 label: StPeter.cwl
+hints:
+  DockerRequirement:
+    dockerPull: spctools/tpp
 inputs:
   StPeter_in_1:
     type: File

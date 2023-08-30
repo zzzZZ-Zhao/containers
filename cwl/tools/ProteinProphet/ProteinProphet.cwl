@@ -2,6 +2,9 @@ cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: "/usr/local/tpp/bin/ProteinProphet"
 label: ProteinProphet.cwl
+hints:
+  DockerRequirement:
+    dockerPull: spctools/tpp
 # We need to specify the positions of additional command line args,
 # because PeptideProphet expects the input file as the first argument,
 # and options/output filename as further arguments

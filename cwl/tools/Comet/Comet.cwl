@@ -4,6 +4,9 @@ baseCommand: ["wget", "https://raw.githubusercontent.com/Workflomics/containers/
 label: comet-ms
 requirements:
   ShellCommandRequirement: {}
+hints:
+  DockerRequirement:
+    dockerPull: spctools/tpp
 arguments:
   - valueFrom: "&& /usr/local/tpp/bin/comet -Pcomet.params"
     position: 1
@@ -13,6 +16,11 @@ arguments:
     position : 2
     separate: false
 inputs:
+  Params:
+    type: File
+    default:
+      class: File
+      path
   Comet_in_1:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
