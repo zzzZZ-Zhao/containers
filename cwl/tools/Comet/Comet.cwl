@@ -19,13 +19,15 @@ arguments:
     prefix: -N
     position : 2
     separate: false
-  - valueFrom: $(inputs.Comet_in_1.basename)
-    position : 4
   
 inputs:
   Comet_in_1:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
+    inputBinding:
+      position: 4
+      separate: false
+      valueFrom: $(self.basename)
   Comet_in_2:
     type: File
     format: "http://edamontology.org/format_1929" # FASTA
@@ -33,6 +35,7 @@ inputs:
       position: 3
       prefix: -D
       separate: false
+      valueFrom: $(self.basename)
 
 
 outputs:
