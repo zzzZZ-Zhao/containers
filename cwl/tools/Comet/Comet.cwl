@@ -16,11 +16,6 @@ arguments:
     position : 2
     separate: false
 inputs:
-  Params:
-    type: File
-    default:
-      class: File
-      path
   Comet_in_1:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
