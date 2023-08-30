@@ -19,7 +19,7 @@ arguments:
     prefix: -N
     position : 2
     separate: false
-  - valueFrom: $(inputs.Comet_in_1.basesname)
+  - valueFrom: $(inputs.Comet_in_1.basename)
     position : 4
     separate: false
 inputs:
