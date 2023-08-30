@@ -21,7 +21,7 @@ arguments:
     separate: false
   - valueFrom: $(inputs.Comet_in_1.basename)
     position : 4
-    separate: false
+  
 inputs:
   Comet_in_1:
     type: File
