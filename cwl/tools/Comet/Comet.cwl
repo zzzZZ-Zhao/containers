@@ -16,10 +16,10 @@ arguments:
   - valueFrom: "-Pcomet.params"
     position: 1
     shellQuote: false
-  - valueFrom: $(inputs.Comet_in_1.nameroot)
-    prefix: -N
-    position : 2
-    separate: false
+  # - valueFrom: $(inputs.Comet_in_1.nameroot)
+  #   prefix: -N
+  #   position : 2
+  #   separate: false
   
 inputs:
   Params:
@@ -31,13 +31,13 @@ inputs:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
     inputBinding:
-      position: 4
+      position: 3
       valueFrom: $(self.basename)
   Comet_in_2:
     type: File
     format: "http://edamontology.org/format_1929" # FASTA
     inputBinding:
-      position: 3
+      position: 2
       prefix: -D
       separate: false
       valueFrom: $(self.basename)
@@ -49,8 +49,8 @@ outputs:
       format: "http://edamontology.org/format_3655" # pepXML
       outputBinding:
         glob: "*.pep.xml"
-      secondaryFiles:
-        - ^^.mzML 
+      # secondaryFiles:
+      #   - ^^.mzML 
 
 
       

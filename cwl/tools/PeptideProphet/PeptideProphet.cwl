@@ -10,15 +10,19 @@ requirements:
     listing:
       - $(inputs.PeptideProphet_in_1)
       - $(inputs.PeptideProphet_in_2)
+      - $(inputs.PeptideProphet_in_3)
 inputs:
   PeptideProphet_in_1:  # 2021-10-8_Ecoli.pep.xml
     type: File
     format: "http://edamontology.org/format_3655" # pepXML
     inputBinding:
       position: 1
-    secondaryFiles:  # 2021-10-8_Ecoli.mzML
-      - ^^.mzML
-  PeptideProphet_in_2: 
+    #secondaryFiles:  # 2021-10-8_Ecoli.mzML
+    #  - ^^.mzML
+  PeptideProphet_in_2:
+    type: File
+    format: "http://edamontology.org/format_3244" # mzML
+  PeptideProphet_in_3: 
     type: File
     format: "http://edamontology.org/format_1929" # FASTA
 outputs:

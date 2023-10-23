@@ -23,8 +23,8 @@ def update_input_yaml(input_yaml_path):
     for key, value in input_data.items():
         if key.startswith('input'):
             new_path = input(f"Enter the path for {key}: ")
-            value['path'] = new_path
-            inputs[key] = {"filename": Path(new_path).name, "size": Path(new_path).stat().st_size}
+            value['path'] = new_path.strip()
+            inputs[key] = {"filename": Path(value['path']).name, "size": Path(value['path']).stat().st_size}
 
     with open(input_yaml_path, 'w') as file:
         documents = yaml.dump(input_data, file)

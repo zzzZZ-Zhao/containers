@@ -23,8 +23,10 @@ steps:
     run: /data/escience/projects/bakeoff/Workflomics/containers/cwl/tools/PeptideProphet/PeptideProphet.cwl
     in:
       PeptideProphet_in_1: Comet1/Comet_out_1
-      # Manual edit: PeptideProphet_in_2: input2
-      PeptideProphet_in_2: input2
+      # Manual edit: PeptideProphet_in_2: input1
+      PeptideProphet_in_2: input1
+      # Manual edit: PeptideProphet_in_3: input2
+      PeptideProphet_in_3: input2
     out: [PeptideProphet_out_1]
   ProteinProphet3:
     run: /data/escience/projects/bakeoff/Workflomics/containers/cwl/tools/ProteinProphet/ProteinProphet.cwl
