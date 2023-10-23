@@ -22,6 +22,8 @@ Enable file sharing for the `data` and `cwl` directory. With Docker Desktop dash
 ```
 python cwltool_wrapper.py run --outdir ./data/outputs --workflow ./cwl/workflows/example2 --input ./cwl/workflows/example2/input.yml
 ```
+The command will ask you to enter the paths to the input files. For the example, The input files are located in `./data/inputs`. The output files will be saved in `./data/outputs`.
+
 To benchmark the workflow, run the following command in the root directory of the project:
 
 ```
