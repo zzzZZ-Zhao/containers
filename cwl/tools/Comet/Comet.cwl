@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["wget", "https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/Comet/comet.params"]
+baseCommand: ["/usr/local/tpp/bin/comet"]
 label: comet-ms
 requirements:
   ShellCommandRequirement: {}
@@ -8,11 +8,12 @@ requirements:
     listing:
       - $(inputs.Comet_in_1)
       - $(inputs.Comet_in_2)
-hints:
+      - $(inputs.Params)
   DockerRequirement:
     dockerPull: spctools/tpp
+    dockerOutputDirectory: /data
 arguments:
-  - valueFrom: "&& /usr/local/tpp/bin/comet -Pcomet.params"
+  - valueFrom: "-Pcomet.params"
     position: 1
     shellQuote: false
   - valueFrom: $(inputs.Comet_in_1.nameroot)
@@ -21,6 +22,11 @@ arguments:
     separate: false
   
 inputs:
+  Params:
+    type: File
+    default:
+      class: File
+      location: https://raw.githubusercontent.com/Workflomics/containers/docker/cwl/tools/Comet/comet.params
   Comet_in_1:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
@@ -43,6 +49,8 @@ outputs:
       format: "http://edamontology.org/format_3655" # pepXML
       outputBinding:
         glob: "*.pep.xml"
+      secondaryFiles:
+        - ^^.mzML 
 
 
       
