@@ -78,7 +78,7 @@ def run_workflow(args, version, inputs):
                 step_results[fail_pattern.search(line).group(1)]["time"] = ""
 
     
-        print(success_steps)
+        #print(success_steps)
         #print(fail_steps)
         for step in success_steps:
             for line in output_lines:
@@ -103,6 +103,7 @@ def run_workflow(args, version, inputs):
     elif args.subcommand == 'run':
         result = subprocess.run(command)
         print(result.stdout)
+        return None
 
 def run_workflows(args, version, inputs):
     all_workflow_data = {
@@ -114,12 +115,15 @@ def run_workflows(args, version, inputs):
         args.workflow = workflow_path
         inputs_copy = inputs.copy()
         workflow_data = run_workflow(args, version, inputs_copy)
-        workflow_name = Path(workflow_path).name
-        if workflow_name in all_workflow_data["workflows"]:
-            workflow_name = workflow_name + "_1"
-        all_workflow_data["workflows"][workflow_name] = workflow_data
-    with open(f"{args.outdir}/benchmark_output.json", 'w') as f:
-        json.dump(all_workflow_data, f, indent=4)
+        if workflow_data is not None:
+            workflow_name = Path(workflow_path).name
+            if workflow_name in all_workflow_data["workflows"]:
+                workflow_name = workflow_name + "_1"
+            all_workflow_data["workflows"][workflow_name] = workflow_data
+    if args.subcommand == 'benchmark':
+        with open(f"{args.outdir}/benchmark_output.json", 'w') as f:
+            json.dump(all_workflow_data, f, indent=4)
+        print("Benchmark results are stored in" + f"{args.outdir}/benchmark_output.json")
 
 
 if __name__ == '__main__':
