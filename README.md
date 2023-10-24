@@ -20,7 +20,7 @@ git checkout continerless
 Enable file sharing for the `data` and `cwl` directory. With Docker Desktop dashboard this could be achived with Settings -> Resources -> File sharing. To simply run an example workflow 2(Comet -> PeptideProphet -> ProteinProphet -> StPeter), run the following command in the root directory of the project:
  
 ```
-python cwltool_wrapper.py run --outdir ./data/outputs --workflow ./cwl/workflows/example2/workflow_1.cwl /cwl/workflows/example2/workflow_2.cwl --input ./cwl/workflows/example2/input.yml
+python cwltool_wrapper.py run --outdir ./data/outputs --workflow ./cwl/workflows/example2/workflow_2.cwl --input ./cwl/workflows/example2/input.yml
 ```
 The command will ask you to enter the paths to the input files. For the example, The input files are located in `./data/inputs`. The output files will be saved in `./data/outputs`. The --workflow flag specifies the path to a directory containing workflows or a list of space-separated path to workflow files.
 
