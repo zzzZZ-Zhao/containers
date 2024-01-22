@@ -1,3 +1,4 @@
 data
 make_input_template.py
 *.log
+*.sif
