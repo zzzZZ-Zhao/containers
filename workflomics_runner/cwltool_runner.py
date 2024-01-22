@@ -20,7 +20,7 @@ class CWLToolRunner(CWLToolWrapper):
             command.append('--singularity')
 
         command.extend([ '--outdir', self.outdir, self.workflow, self.input])
-        result = subprocess.run(command)
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8', check=True)  #run the workflow
         print(result.stdout)
         print(result.stderr)
 
