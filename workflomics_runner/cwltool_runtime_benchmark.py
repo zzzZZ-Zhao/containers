@@ -210,7 +210,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
             "workflowName": "",
             "executor": "cwltool " + self.version,
             "runID": "39eddf71ea1700672984653",
-            "inputs":{key: {"filename": self.input[key]["filename"], "size": self.input[key]["size"]} for key in self.input},
+            "inputs":{key: {"filename": self.input[key]["filename"]} for key in self.input},
             "benchmarks": []
             }
            

@@ -39,15 +39,14 @@ class CWLToolWrapper():
 
         for key, value in input_data.items():
             if key.startswith('input'):
-                if Path(value['path']).exists():
-                    print(f"{key} is {value['path']}. Do you want to change it? (y/n)")
-                    answer = input()
-                    if answer == 'y':
-                        new_path = input(f"Enter the path for {key}: ")
-                        value['path'] = new_path.strip()
-                        inputs[key] = {"filename": Path(value['path']).name, "size": Path(value['path']).stat().st_size}
-                    else:
-                        inputs[key] = {"filename": Path(value['path']).name, "size": Path(value['path']).stat().st_size}
+                print(f"The path for {key} is {value['path']}. Do you want to change it? (y/n)")
+                answer = input()
+                if answer == 'y':
+                    new_path = input(f"Enter the path for {key}: ")
+                    value['path'] = new_path.strip()
+                    inputs[key] = {"filename": Path(value['path']).name}
+                else:
+                    inputs[key] = {"filename": Path(value['path']).name}
         with open(input_yaml_path, 'w') as file:
             documents = yaml.dump(input_data, file)
         return inputs

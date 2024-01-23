@@ -1,9 +1,9 @@
 input1:  # type 'File'
     class: File
-    path:  /data/escience/projects/bakeoff/Workflomics/containers/data/inputs/2021-10-8_Ecoli.mzML
+    path:  https://raw.githubusercontent.com/Workflomics/DemoKit/main/data/inputs/2021-10-8_Ecoli.mzML
     format: http://edamontology.org/format_3244
 input2:  # type 'File'
     class: File
-    path:  /data/escience/projects/bakeoff/Workflomics/containers/data/inputs/up00000062.fasta
+    path:  https://raw.githubusercontent.com/Workflomics/DemoKit/main/data/inputs/up00000062.fasta
     format: http://edamontology.org/format_1929
 
