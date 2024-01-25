@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["/usr/local/tpp/bin/StPeter"]
+baseCommand: "StPeter"
 label: StPeter.cwl
 requirements:
   DockerRequirement:

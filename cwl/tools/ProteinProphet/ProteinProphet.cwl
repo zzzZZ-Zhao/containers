@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: "/usr/local/tpp/bin/ProteinProphet"
+baseCommand: "ProteinProphet"
 label: ProteinProphet.cwl
 requirements:
   DockerRequirement:
