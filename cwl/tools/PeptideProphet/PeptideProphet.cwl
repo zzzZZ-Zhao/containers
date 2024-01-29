@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["/usr/local/tpp/bin/xinteract", "-Noutput_interact.pep.xml" , "-p0.95" , "-l7" , "-PPM"]
+baseCommand: ["xinteract", "-Noutput_interact.pep.xml" , "-p0.95" , "-l7" , "-PPM"]
 label: PeptideProphet.cwl
 requirements:
   DockerRequirement:

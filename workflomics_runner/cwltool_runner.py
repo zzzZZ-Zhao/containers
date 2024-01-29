@@ -19,7 +19,7 @@ class CWLToolRunner(CWLToolWrapper):
         if  self.container == "singularity":
             command.append('--singularity')
 
-        command.extend([ '--outdir', self.outdir, self.workflow, self.input])
+        command.extend([ '--outdir', self.outdir, workflow, self.input_yaml_path])
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8', check=True)  #run the workflow
         print(result.stdout)
         print(result.stderr)
@@ -27,7 +27,7 @@ class CWLToolRunner(CWLToolWrapper):
 
 
     def run_workflows(self):
-        '''Run the workflows in the given directory'''
+        """Run the workflows in the given directory"""
 
         for workflow_path in self.workflow:
             self.run_workflow(workflow_path)

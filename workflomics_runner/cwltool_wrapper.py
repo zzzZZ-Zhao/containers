@@ -5,12 +5,14 @@ from loggingwrapper import LoggingWrapper
 
 
 class CWLToolWrapper():
-    ''' This is the main class for the workflomics_runner application. It contains the common methods for the benchmark and run commands.'''
+    ''' The class contains the common methods for the benchmarking and running CWL workflows.'''
 
 
     def __init__(self, args):
         if args.singularity:
             self.container = "singularity"
+        else:
+            self.container = "docker"
         self.outdir = args.outdir
         self.workflow = args.workflow
         self.input_yaml_path = args.input

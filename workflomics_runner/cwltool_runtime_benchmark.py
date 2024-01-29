@@ -8,11 +8,11 @@ import json
 from loggingwrapper import LoggingWrapper
 
 class CWLToolRuntimeBenchmark(CWLToolWrapper):
-    '''Runtime benchmarking class  to gather information about the runtime of each step in a workflow.'''
+    """Runtime benchmarking class  to gather information about the runtime of each step in a workflow."""
 
     KNOWN_USELESS_WARNINGS_ERRORS = ["WARNING: The requested image's platform", "with 0 errors", "Calculating sensitivity...and error tables..."]
     EXECUTION_TIME_DESIRABILITY_BINS = {"0-60":1, "61-120":0.9, "121-180":0.8, "181-240":0.7, "241-300":0.6, "301-360":0.5, "361-420":0.4, "421-480":0.3, "481-540":0.2, "541-600":0.1, "601+":0}
-    MAX_MENORY_DESIRABILITY_BINS = {"0-100":1, "101-200":0.9, "201-300":0.8, "301-400":0.7, "401-500":0.6, "501-600":0.5, "601-700":0.4, "701-800":0.3, "801-900":0.2, "901-1000":0.1, "1001+":0}
+    MAX_MEMORY_DESIRABILITY_BINS = {"0-100":1, "101-200":0.9, "201-300":0.8, "301-400":0.7, "401-500":0.6, "501-600":0.5, "601-700":0.4, "701-800":0.3, "801-900":0.2, "901-1000":0.1, "1001+":0}
     WARNINGS_DESIRABILITY_BINS = {"0-0":1, "1-1":0.9, "2-2":0.8, "3-3":0.7, "4-4":0.6, "5-5":0.5, "6-6":0.4, "7-7":0.3, "8-8":0.2, "9-9":0.1, "10+":0}
 
     def __init__(self, args):
@@ -21,7 +21,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
        
 
     def is_line_useless(self,line):
-        '''Check if a line is useless for the benchmarking.'''
+        """Check if a line is useless for the benchmarking."""
         for useless in self.KNOWN_USELESS_WARNINGS_ERRORS:
             if useless in line:
                 return True
@@ -29,7 +29,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
 
     def run_workflow(self, workflow):
 
-        '''Run a workflow and gather information about the runtime of each step.'''
+        """Run a workflow and gather information about the runtime of each step."""
         command = ['cwltool']
 
         
@@ -51,11 +51,13 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
             if success_pattern.search(line):
                 success_steps.add(success_pattern.search(line).group(1))
             elif fail_pattern.search(line):
-                step_results[fail_pattern.search(line).group(1)]["status"] = "fail"
-                step_results[fail_pattern.search(line).group(1)]["time"] = "unknown"
-                step_results[fail_pattern.search(line).group(1)]["memory"] = "unknown"
-                step_results[fail_pattern.search(line).group(1)]["warnings"] = "unknown"
-                step_results[fail_pattern.search(line).group(1)]["errors"] = "unknown"
+                for entry in step_results:
+                    if entry["step"] == fail_pattern.search(line).group(1):
+                        entry["status"] = "fail"
+                        entry["time"] = "unknown"
+                        entry["memory"] = "unknown"
+                        entry["warnings"] = "unknown"
+                        entry["errors"] = "unknown"
 
     
         for step in success_steps: # iterate over the output of the workflow and find the benchmark values for each step
@@ -106,7 +108,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
 
     
     def calc_value(self, name):
-        '''Calculate the benchmark values for the given benchmark.'''
+        """Calculate the benchmark values for the given benchmark."""
         if name == "status":
             value = 0
             for entry in self.workflow_benchmark_result["steps"]:
@@ -125,7 +127,8 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
             value = 0
             for entry in self.workflow_benchmark_result["steps"]:
                 if entry[name] != "unknown":
-                    value = max(value, entry["memory"])
+                    # remove last 3 characters from string (MiB, GiB, etc.)
+                    value = max(value, int (entry["memory"].rstrip(entry["memory"][-3:])))
                 else:
                     return "unknown"
         elif name == "warnings":
@@ -145,7 +148,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
         return value
     
     def calc_desirability(self, name, value):
-        '''Calculate the desirability for the given benchmark value.'''
+        """Calculate the desirability for the given benchmark value."""
         if name == "status":
             if value == "success":
                 return 1
@@ -164,8 +167,8 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
         elif name == "memory":
             if value == "unknown":
                 return 0
-            bins = self.MAX_MENORY_DESIRABILITY_BINS
-            count = value
+            bins = self.MAX_MEMORY_DESIRABILITY_BINS
+            count = int(value.rstrip(value[-3:]))
         elif name == "warnings":
             bins = self.WARNINGS_DESIRABILITY_BINS
             count = len(value)
@@ -178,7 +181,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
 
     
     def get_benchmark(self, name):
-        '''Get a benchmark from the benchmark data.'''
+        """Get a benchmark from the benchmark data."""
         benchmark = []
         for entry in self.workflow_benchmark_result["steps"]:
                 step_benchmark = {
@@ -190,7 +193,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
         return benchmark
 
     def run_workflows(self):
-        '''Run the workflows in the given directory and store the results in a json file.'''
+        """Run the workflows in the given directory and store the results in a json file."""
         success_workflows = []
         failed_workflows = []
        

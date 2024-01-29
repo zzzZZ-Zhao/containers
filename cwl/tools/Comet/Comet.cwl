@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["/usr/local/tpp/bin/comet"]
+baseCommand: comet
 label: comet-ms
 requirements:
   ShellCommandRequirement: {}
