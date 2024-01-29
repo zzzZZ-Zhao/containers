@@ -14,23 +14,26 @@ inputs:
     format: "http://edamontology.org/format_1929" # FASTA
 steps:
   Comet1:
-    run: /cwl/tools/Comet/Comet.cwl
+    run:  ../../tools/Comet/Comet.cwl
     in:
       Comet_in_1: input1
       Comet_in_2: input2
-    out: [Comet_out_1, Comet_out_2]
-    #out: [Comet_out_1]
+    out: [Comet_out_1]
   PeptideProphet2:
-    run: /cwl/tools/PeptideProphet/PeptideProphet.cwl
+    run: ../../tools/PeptideProphet/PeptideProphet.cwl
     in:
       PeptideProphet_in_1: Comet1/Comet_out_1
-      #PeptideProphet_in_2: input2
-    out: [PeptideProphet_out_1, PeptideProphet_out_2]
-    #out: [PeptideProphet_out_1]
+      # Manual edit: PeptideProphet_in_2: input1
+      PeptideProphet_in_2: input1
+      # Manual edit: PeptideProphet_in_3: input2
+      PeptideProphet_in_3: input2
+    out: [PeptideProphet_out_1]
   ProteinProphet3:
-    run: /cwl/tools/ProteinProphet/ProteinProphet.cwl
+    run: ../../tools/ProteinProphet/ProteinProphet.cwl
     in:
       ProteinProphet_in_1: PeptideProphet2/PeptideProphet_out_1
+      # Manual edit: ProteinProphet_in_2: input2
+      ProteinProphet_in_2: input2
     out: [ProteinProphet_out_1, ProteinProphet_out_2]
 outputs:
   output1:
