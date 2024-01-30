@@ -42,6 +42,8 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
         steps = self.extract_steps_from_cwl(workflow)
        
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8', check=True)  #run the workflow
+        if (self.verbose):
+            print(result.stdout)
         output_lines = result.stdout.split('\n')
         success_pattern = re.compile(r'\[job (.+)\] completed success') #pattern to match the success of a step
         fail_pattern = re.compile(r'\[job (.+)\] completed permanentFail') #pattern to match the failure of a step
@@ -197,7 +199,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
         success_workflows = []
         failed_workflows = []
        
-        for workflow_path in self.workflow:  # iterate over the workflows and execute them
+        for workflow_path in self.workflows:  # iterate over the workflows and execute them
             workflow_name = Path(workflow_path).name
             LoggingWrapper.info("Benchmarking " + workflow_name + "...", color="green")
             self.run_workflow(workflow_path)
@@ -263,7 +265,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
                     json.dump(all_workflow_data, f, indent=3)
                     LoggingWrapper.info("Benchmark results for " + workflow_name + " are stored in " + os.path.join(self.outdir, workflow_name + ".benchmark.json"))    
         LoggingWrapper.info("Benchmarking completed.", color="green", bold=True)
-        LoggingWrapper.info("Total number of workflows benchmarked: " + str(len(self.workflow)))
+        LoggingWrapper.info("Total number of workflows benchmarked: " + str(len(self.workflows)))
         LoggingWrapper.info("Number of workflows failed: " + str(len(failed_workflows)))
         LoggingWrapper.info("Number of workflows finished successfully: " + str(len(success_workflows)))
         LoggingWrapper.info("Successful workflows: " + ", ".join(success_workflows))

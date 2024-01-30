@@ -2,6 +2,7 @@ from pathlib import Path
 import yaml
 import subprocess
 from loggingwrapper import LoggingWrapper
+import sys
 
 
 class CWLToolWrapper():
@@ -9,15 +10,24 @@ class CWLToolWrapper():
 
 
     def __init__(self, args):
+        '''Initialize the class'''
+        if not Path(args.workflows).is_dir():
+            LoggingWrapper.error(f"The path {args.workflows} is not a directory.")
+            sys.exit(1)
         if args.singularity:
             self.container = "singularity"
         else:
             self.container = "docker"
-        self.outdir = args.outdir
-        self.workflow = args.workflow
-        self.input_yaml_path = args.input
-        if all(Path(workflow).is_dir() for workflow in args.workflow):
-            self.workflow = [str(file) for file in Path(args.workflow[0]).glob('*.cwl')]
+        if args.outdir is None:
+            self.outdir = args.workflows
+        else:
+            self.outdir = args.outdir
+        if args.input is None:
+            self.input_yaml_path = Path(args.workflows).joinpath('input.yml')
+        else:
+            self.input_yaml_path = args.input
+        self.verbose = args.verbose
+        self.workflows = [str(file) for file in Path(args.workflows).glob('*.cwl')]
         self.version = self.check_cwltool()
         self.input = self.update_input_yaml(self.input_yaml_path)
 

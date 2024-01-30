@@ -24,8 +24,8 @@ class CWLToolRunner(CWLToolWrapper):
         command.extend([ '--outdir', self.outdir, workflow, self.input_yaml_path])
         LoggingWrapper.info(f"Running {workflow_name}...", color="green")
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8')  #run the workflow 
-        
-        print(result.stdout)
+        if (self.verbose):
+            print(result.stdout)
         if result.returncode != 0:
             self.success_workflows.append(workflow_name)
             LoggingWrapper.error(f"Workflow {workflow_name} failed.", color="red")
@@ -39,10 +39,10 @@ class CWLToolRunner(CWLToolWrapper):
     def run_workflows(self):
         """Run the workflows in the given directory"""
 
-        for workflow_path in self.workflow:
+        for workflow_path in self.workflows:
             self.run_workflow(workflow_path)
         LoggingWrapper.info("Execution completed.", color="green", bold=True)
-        LoggingWrapper.info("Total number of workflows executed: " + str(len(self.workflow)))
+        LoggingWrapper.info("Total number of workflows executed: " + str(len(self.workflows)))
         LoggingWrapper.info("Number of workflows failed: " + str(len(self.failed_workflows)))
         LoggingWrapper.info("Number of workflows finished successfully: " + str(len(self.success_workflows)))
         LoggingWrapper.info("Successful workflows: " + ", ".join(self.success_workflows))
