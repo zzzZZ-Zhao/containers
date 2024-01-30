@@ -199,15 +199,15 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
        
         for workflow_path in self.workflow:  # iterate over the workflows and execute them
             workflow_name = Path(workflow_path).name
-            LoggingWrapper.info("Benchmarking " + workflow_name + "...")
+            LoggingWrapper.info("Benchmarking " + workflow_name + "...", color="green")
             self.run_workflow(workflow_path)
             if self.workflow_benchmark_result["status"] == "fail": # check if the workflow was executed successfully
                 LoggingWrapper.error(workflow_name + " failed")
                 failed_workflows.append(workflow_name)
             else:
-                LoggingWrapper.info(workflow_name + " completed successfully.")
+                LoggingWrapper.info(workflow_name + " finished successfully.", color="green")
                 success_workflows.append(workflow_name)
-            LoggingWrapper.info("Benchmarking " + workflow_name + " completed.")
+            LoggingWrapper.info("Benchmarking " + workflow_name + " completed.", color="green")
             # store the benchmark results for each workflow in a json file
             all_workflow_data = {
             "workflowName": "",
@@ -263,9 +263,9 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
                     json.dump(all_workflow_data, f, indent=3)
                     LoggingWrapper.info("Benchmark results for " + workflow_name + " are stored in " + os.path.join(self.outdir, workflow_name + ".benchmark.json"))    
         LoggingWrapper.info("Benchmarking completed.", color="green", bold=True)
-        LoggingWrapper.info("Total number of workflows: " + str(len(self.workflow)))
+        LoggingWrapper.info("Total number of workflows benchmarked: " + str(len(self.workflow)))
         LoggingWrapper.info("Number of workflows failed: " + str(len(failed_workflows)))
-        LoggingWrapper.info("Number of workflows completed successfully: " + str(len(success_workflows)))
+        LoggingWrapper.info("Number of workflows finished successfully: " + str(len(success_workflows)))
         LoggingWrapper.info("Successful workflows: " + ", ".join(success_workflows))
         LoggingWrapper.info("Failed workflows: " + ", ".join(failed_workflows))
             

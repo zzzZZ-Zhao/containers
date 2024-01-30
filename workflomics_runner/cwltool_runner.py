@@ -11,6 +11,8 @@ class CWLToolRunner(CWLToolWrapper):
     def __init__(self, args):
        
         super().__init__(args)
+        self.success_workflows = []
+        self.failed_workflows = []
 
 
     def run_workflow(self, workflow):
@@ -18,11 +20,19 @@ class CWLToolRunner(CWLToolWrapper):
 
         if  self.container == "singularity":
             command.append('--singularity')
-
+        workflow_name = Path(workflow).name
         command.extend([ '--outdir', self.outdir, workflow, self.input_yaml_path])
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8', check=True)  #run the workflow
+        LoggingWrapper.info(f"Running {workflow_name}...", color="green")
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8')  #run the workflow 
+        
         print(result.stdout)
-        print(result.stderr)
+        if result.returncode != 0:
+            self.success_workflows.append(workflow_name)
+            LoggingWrapper.error(f"Workflow {workflow_name} failed.", color="red")
+        else:
+            self.success_workflows.append(workflow_name)
+            LoggingWrapper.info(f"Workflow {workflow_name} finished successfully.", color="green")
+        
 
 
 
@@ -31,3 +41,9 @@ class CWLToolRunner(CWLToolWrapper):
 
         for workflow_path in self.workflow:
             self.run_workflow(workflow_path)
+        LoggingWrapper.info("Execution completed.", color="green", bold=True)
+        LoggingWrapper.info("Total number of workflows executed: " + str(len(self.workflow)))
+        LoggingWrapper.info("Number of workflows failed: " + str(len(self.failed_workflows)))
+        LoggingWrapper.info("Number of workflows finished successfully: " + str(len(self.success_workflows)))
+        LoggingWrapper.info("Successful workflows: " + ", ".join(self.success_workflows))
+        LoggingWrapper.info("Failed workflows: " + ", ".join(self.failed_workflows))

@@ -45,9 +45,10 @@ if __name__ == '__main__':
 
     
     if (args.subcommand == "benchmark"):
-        LoggingWrapper.info("Benchmarking Workflows...", color="green")
+        LoggingWrapper.info("Benchmarking Workflows...", color="green", bold=True)
         op = CWLToolRuntimeBenchmark(args)
     elif (args.subcommand == "run"):
+        LoggingWrapper.info("Running Workflows...", color="green", bold=True)
         op = CWLToolRunner(args)    
 
     op.run_workflows()
