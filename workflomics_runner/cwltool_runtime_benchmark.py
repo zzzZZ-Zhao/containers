@@ -10,10 +10,10 @@ from loggingwrapper import LoggingWrapper
 class CWLToolRuntimeBenchmark(CWLToolWrapper):
     """Runtime benchmarking class  to gather information about the runtime of each step in a workflow."""
 
-    KNOWN_USELESS_WARNINGS_ERRORS = ["WARNING: The requested image's platform", "with 0 errors", "Calculating sensitivity...and error tables..."]
-    EXECUTION_TIME_DESIRABILITY_BINS = {"0-60":1, "61-120":0.9, "121-180":0.8, "181-240":0.7, "241-300":0.6, "301-360":0.5, "361-420":0.4, "421-480":0.3, "481-540":0.2, "541-600":0.1, "601+":0}
-    MAX_MEMORY_DESIRABILITY_BINS = {"0-100":1, "101-200":0.9, "201-300":0.8, "301-400":0.7, "401-500":0.6, "501-600":0.5, "601-700":0.4, "701-800":0.3, "801-900":0.2, "901-1000":0.1, "1001+":0}
-    WARNINGS_DESIRABILITY_BINS = {"0-0":1, "1-1":0.9, "2-2":0.8, "3-3":0.7, "4-4":0.6, "5-5":0.5, "6-6":0.4, "7-7":0.3, "8-8":0.2, "9-9":0.1, "10+":0}
+    KNOWN_USELESS_WARNINGS_ERRORS = ["WARNING: The requested image's platform", " 0 errors", "Calculating sensitivity...and error tables...", " 0 warnings"]
+    EXECUTION_TIME_DESIRABILITY_BINS = {"0-150":1, "151-300":0.75, "301-450":0.5, "451-600":0.25, "601+":0}
+    MAX_MEMORY_DESIRABILITY_BINS = {"0-250":1, "251-500":0.75, "501-750":0.5, "751-1000":0.25, "1001+":0}
+    WARNINGS_DESIRABILITY_BINS = {"0-1":1, "2-3":0.75, "4-5":0.5, "6-7":0.25, "8+":0}
 
     def __init__(self, args):
         super().__init__(args)
@@ -77,7 +77,11 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
                     break
                 elif step_start:
                     if f'[job {step}] Max memory used' in line:
-                        max_memory_step = line.split()[-1]
+                        max_memory_step = int(line.split()[-1].rstrip(line.split()[-1][-3:]))
+                        if line.split()[-1][-3:] == "GiB":
+                            max_memory_step = max_memory_step * 1024
+                        if max_memory_step == 0:
+                            max_memory_step = 1
                     elif "warning" in line.lower():
                         if not self.is_line_useless(line):
                             warnings_step.append(line)
@@ -86,7 +90,9 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
                             errors_step.append(line)
                     
 
-            execution_time_step = (end_time_step - start_time_step).total_seconds()
+            execution_time_step = int((end_time_step - start_time_step).total_seconds())
+            if execution_time_step == 0:
+                execution_time_step = 1
             for entry in step_results: # store the benchmark values for each successfully executed step
                 if entry["step"] == step:
                     entry["status"] = "success"
@@ -131,7 +137,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
             for entry in self.workflow_benchmark_result["steps"]:
                 if entry[name] != "unknown":
                     # remove last 3 characters from string (MiB, GiB, etc.)
-                    value = max(value, int (entry["memory"].rstrip(entry["memory"][-3:])))
+                    value = max(value, entry["memory"])
                 else:
                     return "unknown"
         elif name == "warnings":
@@ -171,7 +177,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
             if value == "unknown":
                 return 0
             bins = self.MAX_MEMORY_DESIRABILITY_BINS
-            count = int(value.rstrip(value[-3:]))
+            count = value
         elif name == "warnings":
             bins = self.WARNINGS_DESIRABILITY_BINS
             count = len(value)
