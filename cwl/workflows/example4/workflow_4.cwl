@@ -31,32 +31,32 @@ steps:
       mzRecal_in_1: input1
       mzRecal_in_2: idconvert2/idconvert_out_1
     out: [mzRecal_out_1]
-  # Comet4:
-  #   run: ../../tools/Comet/Comet.cwl
-  #   in:
-  #     Comet_in_1: mzRecal3/mzRecal_out_1
-  #     Comet_in_2: input2
-  #   out: [Comet_out_1]
-  # PeptideProphet5:
-  #   run: ../../tools/PeptideProphet/PeptideProphet.cwl
-  #   in:
-  #     PeptideProphet_in_1: Comet4/Comet_out_1
-  #      # Manual edit: PeptideProphet_in_2: mzRecal3/mzRecal_out_1
-  #     PeptideProphet_in_2:  mzRecal3/mzRecal_out_1
-  #     # Manual edit: PeptideProphet_in_3: input2
-  #     PeptideProphet_in_3: input2
+  Comet4:
+    run: ../../tools/Comet/Comet.cwl
+    in:
+      Comet_in_1: mzRecal3/mzRecal_out_1
+      Comet_in_2: input2
+    out: [Comet_out_1]
+  PeptideProphet5:
+    run: ../../tools/PeptideProphet/PeptideProphet.cwl
+    in:
+      PeptideProphet_in_1: Comet4/Comet_out_1
+       # Manual edit: PeptideProphet_in_2: mzRecal3/mzRecal_out_1
+      PeptideProphet_in_2:  mzRecal3/mzRecal_out_1
+      # Manual edit: PeptideProphet_in_3: input2
+      PeptideProphet_in_3: input2
 
-  #   out: [PeptideProphet_out_1]
-  # ProteinProphet6:
-  #   run: ../../tools/ProteinProphet/ProteinProphet.cwl
-  #   in:
-  #     ProteinProphet_in_1: PeptideProphet5/PeptideProphet_out_1
-  #     # Manual edit: ProteinProphet_in_2: input2
-  #     ProteinProphet_in_2: input2
-  #   out: [ProteinProphet_out_1]
+    out: [PeptideProphet_out_1]
+  ProteinProphet6:
+    run: ../../tools/ProteinProphet/ProteinProphet.cwl
+    in:
+      ProteinProphet_in_1: PeptideProphet5/PeptideProphet_out_1
+      # Manual edit: ProteinProphet_in_2: input2
+      ProteinProphet_in_2: input2
+    out: [ProteinProphet_out_1]
 outputs:
   output1:
     type: File
-    #format: "http://edamontology.org/format_3747" # protXML
-    format: "http://edamontology.org/format_3244" # mzML
+    format: "http://edamontology.org/format_3747" # protXML
+    #format: "http://edamontology.org/format_3244" # mzML
     outputSource: mzRecal3/mzRecal_out_1

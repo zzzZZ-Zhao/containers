@@ -5,7 +5,7 @@ class: CommandLineTool
 label: mzRecal.cwl
 requirements:
   DockerRequirement:
-    dockerPull: workflomics/mzrecal:1.1.3
+    dockerPull: workflomics/mzrecal:1.1.2
 baseCommand: "/usr/local/mzrecal/mzrecal"
 arguments:
   - position: 2
