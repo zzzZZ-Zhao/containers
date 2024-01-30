@@ -4,8 +4,8 @@ from pathlib import Path
 import re
 import datetime
 import json
-from loggingwrapper import LoggingWrapper'
-import
+from loggingwrapper import LoggingWrapper
+import os
 
 class CWLToolRunner(CWLToolWrapper):
 
