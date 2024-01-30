@@ -5,7 +5,7 @@ class: CommandLineTool
 label: idconvert.cwl
 
 baseCommand: "/usr/local/tpp/bin/idconvert"
-hints:
+requirements:
   DockerRequirement:
     dockerPull: spctools/tpp
 

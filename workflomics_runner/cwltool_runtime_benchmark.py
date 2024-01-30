@@ -42,7 +42,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
         command.extend(['--disable-color', '--timestamps', '--outdir', self.workflow_outdir, workflow, self.input_yaml_path])  #add the required option in cwltool to disable color and timestamps to enable benchmarking
         steps = self.extract_steps_from_cwl(workflow)
        
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8', check=True)  #run the workflow
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8')  #run the workflow
         if (self.verbose):
             print(result.stdout)
         output_lines = result.stdout.split('\n')
