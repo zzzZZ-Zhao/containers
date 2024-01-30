@@ -36,7 +36,7 @@ class CWLToolRunner(CWLToolWrapper):
             self.success_workflows.append(workflow_name)
             LoggingWrapper.info(f"Workflow {workflow_name} finished successfully.", color="green")
         
-
+        LoggingWrapper.info(f"Output of {workflow_name} is stored in {workflow_outdir}. It may be empty if the workflow failed.")
 
 
     def run_workflows(self):

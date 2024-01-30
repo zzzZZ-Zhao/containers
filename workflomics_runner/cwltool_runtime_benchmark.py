@@ -37,9 +37,9 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
             LoggingWrapper.warning("Using singularity container, memory usage will not be calculated.")
             command.append('--singularity')
 
-        workflow_outdir = os.path.join(self.outdir, Path(workflow).name + "_output") #create the output directory for the workflow
-        Path(workflow_outdir).mkdir(exist_ok=True) #create the output directory for the workflow
-        command.extend(['--disable-color', '--timestamps', '--outdir', workflow_outdir, workflow, self.input_yaml_path])  #add the required option in cwltool to disable color and timestamps to enable benchmarking
+        self.workflow_outdir = os.path.join(self.outdir, Path(workflow).name + "_output") #create the output directory for the workflow
+        Path(self.workflow_outdir).mkdir(exist_ok=True) #create the output directory for the workflow
+        command.extend(['--disable-color', '--timestamps', '--outdir', self.workflow_outdir, workflow, self.input_yaml_path])  #add the required option in cwltool to disable color and timestamps to enable benchmarking
         steps = self.extract_steps_from_cwl(workflow)
        
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8', check=True)  #run the workflow
@@ -211,6 +211,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
             else:
                 LoggingWrapper.info(workflow_name + " finished successfully.", color="green")
                 success_workflows.append(workflow_name)
+            LoggingWrapper.info(f"Output of {workflow_name} is stored in {self.workflow_outdir}. It may be empty if the workflow failed.")
             LoggingWrapper.info("Benchmarking " + workflow_name + " completed.", color="green")
             # store the benchmark results for each workflow in a json file
             all_workflow_data = {
