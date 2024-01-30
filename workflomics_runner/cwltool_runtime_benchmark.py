@@ -198,6 +198,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
         """Run the workflows in the given directory and store the results in a json file."""
         success_workflows = []
         failed_workflows = []
+        workflows_benchmarks = []
        
         for workflow_path in self.workflows:  # iterate over the workflows and execute them
             workflow_name = Path(workflow_path).name
@@ -258,12 +259,12 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
                                                     "steps": self.get_benchmark("errors"),
                                                     })
 
+            workflows_benchmarks.append(all_workflow_data)
 
 
-
-            with open(os.path.join(self.outdir, workflow_name + ".benchmark.json"), 'w') as f:
-                    json.dump(all_workflow_data, f, indent=3)
-                    LoggingWrapper.info("Benchmark results for " + workflow_name + " are stored in " + os.path.join(self.outdir, workflow_name + ".benchmark.json"))    
+        with open(os.path.join(self.outdir, "benchmarks.json"), 'w') as f:
+            json.dump(workflows_benchmarks, f, indent=3)
+            LoggingWrapper.info("Benchmark results stored in " + os.path.join(self.outdir, "benchmarks.json"), color="green")    
         LoggingWrapper.info("Benchmarking completed.", color="green", bold=True)
         LoggingWrapper.info("Total number of workflows benchmarked: " + str(len(self.workflows)))
         LoggingWrapper.info("Number of workflows failed: " + str(len(failed_workflows)))
