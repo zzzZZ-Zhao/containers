@@ -4,7 +4,8 @@ from pathlib import Path
 import re
 import datetime
 import json
-from loggingwrapper import LoggingWrapper
+from loggingwrapper import LoggingWrapper'
+import
 
 class CWLToolRunner(CWLToolWrapper):
 
@@ -21,7 +22,9 @@ class CWLToolRunner(CWLToolWrapper):
         if  self.container == "singularity":
             command.append('--singularity')
         workflow_name = Path(workflow).name
-        command.extend([ '--outdir', self.outdir, workflow, self.input_yaml_path])
+        workflow_outdir = os.path.join(self.outdir, Path(workflow).name + "_output") #create the output directory for the workflow
+        Path(workflow_outdir).mkdir(exist_ok=True) #create the output directory for the workflow
+        command.extend([ '--outdir', workflow_outdir, workflow, self.input_yaml_path])
         LoggingWrapper.info(f"Running {workflow_name}...", color="green")
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8')  #run the workflow 
         if (self.verbose):
