@@ -194,7 +194,7 @@ class CWLToolRuntimeBenchmark(CWLToolWrapper):
         benchmark = []
         for entry in self.workflow_benchmark_result["steps"]:
                 step_benchmark = {
-                    "description": entry["step"],
+                    "description": entry["step"].rstrip('0123456789'),
                     "value": entry[name],
                     "desirability_value": 0 if entry["status"] == "fail" or entry["status"] == "unknown" else self.calc_desirability(name, entry[name])
                 }
