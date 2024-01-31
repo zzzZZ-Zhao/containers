@@ -14,18 +14,18 @@ from cwltool_runner import CWLToolRunner
 def add_benchmark_args(parser):
     """Add the arguments for the benchmark command."""
     parser.add_argument('--singularity', action='store_true', help='Use singularity instead of docker.')
-    parser.add_argument('-o','--outdir', required=True, help='Path to the output directory to store the results.')
-    parser.add_argument('-w','--workflow', nargs='+', required=True, help='Path to the workflows directory or a list of workflows.')
+    parser.add_argument('-o','--outdir', help='Path to the output directory to store the results (default: workflows directory).', default= None)
     parser.add_argument('-v', '--verbose', action='store_true', help='Print the output of the cwltool command.')
-    parser.add_argument('-i','--input', required=True, help='Path to the input yaml file.')
+    parser.add_argument('-i','--input', help='Path to the input yaml file (default: input.yml in the workflows directory).', default= None)
+    parser.add_argument('workflows', help='Path to the workflows directory.')
 
 def add_run_args(parser):
     """Add the arguments for the run command."""
     parser.add_argument('--singularity', action='store_true', help='Use singularity instead of docker.')
-    parser.add_argument('-o','--outdir', required=True, help='Path to the output directory to store the results.')
-    parser.add_argument('-w','--workflow', nargs='+', required=True, help='Path to the workflows directory or a list of workflows.')
+    parser.add_argument('-o','--outdir', help='Path to the output directory to store the results (default: workflows directory).', default= None)
     parser.add_argument('-v', '--verbose', action='store_true', help='Print the output of the cwltool command.')
-    parser.add_argument('-i','--input', required=True, help='Path to the input yaml file.')
+    parser.add_argument('-i','--input', help='Path to the input yaml file (default: input.yml in the workflows directory).', default= None)
+    parser.add_argument('workflows', help='Path to the workflows directory.')
    
 
 if __name__ == '__main__':
@@ -45,9 +45,10 @@ if __name__ == '__main__':
 
     
     if (args.subcommand == "benchmark"):
-        LoggingWrapper.info("Benchmarking Workflows...", color="green")
+        LoggingWrapper.info("Benchmarking Workflows...", color="green", bold=True)
         op = CWLToolRuntimeBenchmark(args)
     elif (args.subcommand == "run"):
+        LoggingWrapper.info("Running Workflows...", color="green", bold=True)
         op = CWLToolRunner(args)    
 
     op.run_workflows()
