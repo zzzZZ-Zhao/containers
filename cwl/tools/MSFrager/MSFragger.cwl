@@ -1,13 +1,13 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: comet
-label: comet-ms
+baseCommand: msfragger
+label: msfragger
 requirements:
   ShellCommandRequirement: {}
   InitialWorkDirRequirement:
     listing:
-      - $(inputs.Comet_in_1)
-      - $(inputs.Comet_in_2)
+      - $(inputs.MS_Fragger_in_1)
+      - $(inputs.MS_Fragger_in_2)
       - $(inputs.Params)
   DockerRequirement:
     dockerPull: spctools/tpp
@@ -16,24 +16,20 @@ arguments:
   - valueFrom: "-Pcomet.params"
     position: 1
     shellQuote: false
-  # - valueFrom: $(inputs.Comet_in_1.nameroot)
-  #   prefix: -N
-  #   position : 2
-  #   separate: false
   
 inputs:
   Params:
     type: File
     default:
       class: File
-      location: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/Comet/comet.params
-  Comet_in_1:
+      location: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/MSFragger/fragger.params
+  MS_Fragger_in_1:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
     inputBinding:
       position: 3
       valueFrom: $(self.basename)
-  Comet_in_2:
+  MS_Fragger_in_2:
     type: File
     format: "http://edamontology.org/format_1929" # FASTA
     inputBinding:
@@ -44,14 +40,9 @@ inputs:
 
 
 outputs:
-    Comet_out_1: 
+    MS_Fragger_out_1: 
       type: File
       format: "http://edamontology.org/format_3655" # pepXML
-      outputBinding:
-        glob: "*.pep.xml"
-    Comet_out_2: 
-      type: File
-      format: "http://edamontology.org/format_3247" # mzIdentML
       outputBinding:
         glob: "*.mzid"
 
