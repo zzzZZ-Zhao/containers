@@ -49,8 +49,11 @@ outputs:
       format: "http://edamontology.org/format_3655" # pepXML
       outputBinding:
         glob: "*.pep.xml"
-      # secondaryFiles:
-      #   - ^^.mzML 
+    Comet_out_2: 
+      type: File
+      format: "http://edamontology.org/format_3247" # mzIdentML
+      outputBinding:
+        glob: "*.mzid"
 
 
       
