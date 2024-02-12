@@ -5,7 +5,6 @@ label: ProteinProphet.cwl
 requirements:
   DockerRequirement:
     dockerPull: spctools/tpp:version6.3.3
-    dockerOutputDirectory: /data
   InitialWorkDirRequirement:
     listing:
       - $(inputs.ProteinProphet_in_2)

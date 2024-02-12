@@ -11,34 +11,37 @@ requirements:
     listing:
       - $(inputs.Jar)
 baseCommand: java
-arguments:
-  - valueFrom: "-jar GOEnrichment.jar"
-    position: 1
-    shellQuote: false
 inputs:
   Jar:
     type: File
+    inputBinding:
+        prefix: -jar
+        position: 1
     default:
       class: File
       location: https://github.com/DanFaria/GOEnrichment/releases/download/v2.0.1/GOEnrichment.jar
+    
+     
+
+
   GOEnrichment_in_1:
     type: File
     format: "http://edamontology.org/format_2330" # Textual format
     inputBinding:
         prefix: "-s"
-        position: 1
+        position: 2
   GOEnrichment_in_2:
     type: File
     format: "http://edamontology.org/format_2196_plain" # OBO format
     inputBinding:
         prefix: "-g"
-        position: 2
+        position: 3
   GOEnrichment_in_3:
     type: File
     format: "http://edamontology.org/format_3475_plain" # TSV_p
     inputBinding:
         prefix: "-a"
-        position: 3
+        position: 4
 
 outputs:
   GOEnrichment_out_1:

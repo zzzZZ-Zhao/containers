@@ -11,18 +11,14 @@ requirements:
       - $(inputs.Params)
   DockerRequirement:
     dockerPull: spctools/tpp:version6.3.3
-arguments:
-  - valueFrom: "-Pcomet.params"
-    position: 1
-    shellQuote: false
-  # - valueFrom: $(inputs.Comet_in_1.nameroot)
-  #   prefix: -N
-  #   position : 2
-  #   separate: false
   
 inputs:
   Params:
     type: File
+    inputBinding:
+      prefix: -P
+      position: 1
+      separate: false
     default:
       class: File
       location: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/Comet/comet.params

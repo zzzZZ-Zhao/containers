@@ -5,7 +5,6 @@ label: PeptideProphet.cwl
 requirements:
   DockerRequirement:
     dockerPull: spctools/tpp:version6.3.3
-    dockerOutputDirectory: /data
   InitialWorkDirRequirement:
     listing:
       - $(inputs.PeptideProphet_in_1)
