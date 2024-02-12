@@ -23,13 +23,13 @@ inputs:
     default:
       class: File
       location: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/MSFragger/fragger.params
-  MS_Fragger_in_1:
+  MSFragger_in_1:
     type: File
     format: "http://edamontology.org/format_3244" # mzML
     inputBinding:
       position: 3
       valueFrom: $(self.basename)
-  MS_Fragger_in_2:
+  MSFragger_in_2:
     type: File
     format: "http://edamontology.org/format_1929" # FASTA
     inputBinding:
@@ -40,7 +40,7 @@ inputs:
 
 
 outputs:
-    MS_Fragger_out_1: 
+    MSFragger_out_1: 
       type: File
       format: "http://edamontology.org/format_3655" # pepXML
       outputBinding:
