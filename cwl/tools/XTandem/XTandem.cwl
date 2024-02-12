@@ -3,7 +3,7 @@
 cwlVersion: v1.0
 class: CommandLineTool
 label: XTandem.cwl
-baseCommand: ["mkdir", "/tmp/XTandem"]
+baseCommand: ["mkdir", "-p", "/tmp/XTandem"]
 requirements:
   ShellCommandRequirement: {}
   DockerRequirement:
