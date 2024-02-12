@@ -1,0 +1,16 @@
+input1:
+  class: File
+  format: http://edamontology.org/format_3244
+  path: https://raw.githubusercontent.com/Workflomics/DemoKit/main/data/inputs/2021-10-8_Ecoli.mzML
+input2:
+  class: File
+  format: http://edamontology.org/format_1929
+  path: https://raw.githubusercontent.com/Workflomics/DemoKit/main/data/inputs/up00000062.fasta
+input3:
+  class: File
+  format: http://edamontology.org/format_2196_plain
+  path: /data/escience/projects/bakeoff/Workflomics/containers/data/inputs/go.obo
+input4:
+  class: File
+  format: http://edamontology.org/format_3475_plain
+  path: /data/escience/projects/bakeoff/Workflomics/containers/data/inputs/goa_human.gaf

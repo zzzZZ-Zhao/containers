@@ -10,8 +10,7 @@ requirements:
       - $(inputs.Comet_in_2)
       - $(inputs.Params)
   DockerRequirement:
-    dockerPull: spctools/tpp
-    dockerOutputDirectory: /data
+    dockerPull: spctools/tpp:version6.3.3
 arguments:
   - valueFrom: "-Pcomet.params"
     position: 1

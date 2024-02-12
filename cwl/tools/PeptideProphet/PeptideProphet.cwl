@@ -4,7 +4,7 @@ baseCommand: ["xinteract", "-Noutput_interact.pep.xml" , "-p0.95" , "-l7" , "-PP
 label: PeptideProphet.cwl
 requirements:
   DockerRequirement:
-    dockerPull: spctools/tpp
+    dockerPull: spctools/tpp:version6.3.3
     dockerOutputDirectory: /data
   InitialWorkDirRequirement:
     listing:
