@@ -8,9 +8,9 @@ input2:
   path: https://raw.githubusercontent.com/Workflomics/DemoKit/main/data/inputs/up00000062.fasta
 input3:
   class: File
-  format: http://edamontology.org/format_2196_plain
+  format: http://edamontology.org/format_2196
   path: /data/escience/projects/bakeoff/Workflomics/containers/data/inputs/go.obo
 input4:
   class: File
-  format: http://edamontology.org/format_3475_plain
+  format: http://edamontology.org/format_3475
   path: /data/escience/projects/bakeoff/Workflomics/containers/data/inputs/goa_human.gaf

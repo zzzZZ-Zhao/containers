@@ -32,13 +32,13 @@ inputs:
         position: 2
   GOEnrichment_in_2:
     type: File
-    format: "http://edamontology.org/format_2196_plain" # OBO format
+    format: "http://edamontology.org/format_2196" # OBO format
     inputBinding:
         prefix: "-g"
         position: 3
   GOEnrichment_in_3:
     type: File
-    format: "http://edamontology.org/format_3475_plain" # TSV_p
+    format: "http://edamontology.org/format_3475" # TSV
     inputBinding:
         prefix: "-a"
         position: 4

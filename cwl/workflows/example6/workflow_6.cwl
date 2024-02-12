@@ -61,5 +61,5 @@ steps:
 outputs:
   output1:
     type: File
-    format: "http://edamontology.org/format_2330" # Textual format_p
+    format: "http://edamontology.org/format_2330" # Textual format
     outputSource: gProfiler7/gProfiler_out_1

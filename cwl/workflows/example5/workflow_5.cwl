@@ -15,10 +15,10 @@ inputs:
     format: "http://edamontology.org/format_1929" # FASTA
   input3:
     type: File
-    format: "http://edamontology.org/format_2196_plain" # OBO format_p
+    format: "http://edamontology.org/format_2196" # OBO format
   input4:
     type: File
-    format: "http://edamontology.org/format_3475_plain" # TSV_p
+    format: "http://edamontology.org/format_3475" # TSV
 steps:
   Comet1:
     run: ../../tools/Comet/Comet.cwl
@@ -75,5 +75,5 @@ steps:
 outputs:
   output1:
     type: File
-    format: "http://edamontology.org/format_2330_plain" # Textual format_p
+    format: "http://edamontology.org/format_2330" # Textual format
     outputSource: GOEnrichment8/GOEnrichment_out_1
