@@ -4,8 +4,7 @@ baseCommand: "ProteinProphet"
 label: ProteinProphet.cwl
 requirements:
   DockerRequirement:
-    dockerPull: spctools/tpp
-    dockerOutputDirectory: /data
+    dockerPull: spctools/tpp:version6.3.3
   InitialWorkDirRequirement:
     listing:
       - $(inputs.ProteinProphet_in_2)

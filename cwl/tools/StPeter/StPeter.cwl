@@ -4,7 +4,7 @@ baseCommand: "StPeter"
 label: StPeter.cwl
 requirements:
   DockerRequirement:
-    dockerPull: spctools/tpp
+    dockerPull: spctools/tpp:version6.3.3
     dockerOutputDirectory: /data
   InitialWorkDirRequirement:
     listing:
