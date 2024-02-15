@@ -6,8 +6,8 @@ requirements:
   ShellCommandRequirement: {}
   InitialWorkDirRequirement:
     listing:
-      - $(inputs.MS_Fragger_in_1)
-      - $(inputs.MS_Fragger_in_2)
+      - $(inputs.MSFragger_in_1)
+      - $(inputs.MSFragger_in_2)
       - $(inputs.Params)
   DockerRequirement:
     dockerPull: spctools/tpp
