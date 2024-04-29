@@ -18,4 +18,4 @@ outputs:
     type: File
     doc: "Output file containing the result of the curl command"
     outputBinding:
-      glob: "output.txt"
+      glob: "output.json"
