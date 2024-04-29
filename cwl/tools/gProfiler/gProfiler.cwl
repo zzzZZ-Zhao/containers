@@ -10,7 +10,6 @@ inputs:
   Params:
     type: File
     inputBinding:
-      prefix: -P
       position: 1
       separate: false
     default:
