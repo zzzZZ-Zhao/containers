@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Check if a file was provided as an argument
 if [ $# -eq 0 ]; then
