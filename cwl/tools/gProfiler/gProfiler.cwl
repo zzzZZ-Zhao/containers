@@ -6,6 +6,8 @@ requirements:
   InitialWorkDirRequirement:
     listing:
       - $(inputs.Params)
+  DockerRequirement:
+    dockerPull: spctools/tpp:version6.3.3
 inputs:
   Params:
     type: File
