@@ -34,12 +34,12 @@ outputs:
       type: File
       format: "http://edamontology.org/format_3655" # pepXML
       outputBinding:
-        glob: "*.pep.xml"
+        glob: "output_interact.pep.xml"
     PeptideProphet_out_2: 
       type: File
       format: "http://edamontology.org/format_2331" # HTML
       outputBinding:
-        glob: "*.pep-MODELS.html"
+        glob: "output_interact.pep-MODELS.html"
 
 
     
