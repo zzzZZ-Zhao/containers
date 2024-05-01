@@ -51,11 +51,11 @@
   </search_settings>
 
   <basic_settings>
-    <instruments_file>Instruments.xml</instruments_file>
-    <unimod_file>unimod.xml</unimod_file>
-    <enzyme_file>enzymes.xml</enzyme_file>
-    <unimod_obo_file>unimod.obo</unimod_obo_file>
-    <psims_obo_file>psi-ms.obo</psims_obo_file>
+    <instruments_file>/msamanda/Instruments.xml</instruments_file>
+    <unimod_file>/msamanda/unimod.xml</unimod_file>
+    <enzyme_file>/msamanda/enzymes.xml</enzyme_file>
+    <unimod_obo_file>/msamanda/unimod.obo</unimod_obo_file>
+    <psims_obo_file>/msamanda/psi-ms.obo</psims_obo_file>
     <monoisotopic>true</monoisotopic>
     <considered_charges>2+,3+,4+</considered_charges>
     <!-- default true -> considered charges are combined in one result -->
