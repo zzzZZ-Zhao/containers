@@ -24,6 +24,11 @@ inputs:
   PeptideProphet_in_3: 
     type: File
     format: "http://edamontology.org/format_1929" # FASTA
+    inputBinding:
+      position: 2
+      prefix: -D
+      separate: false
+      valueFrom: $(self.basename)
 outputs:  
     PeptideProphet_out_1: 
       type: File

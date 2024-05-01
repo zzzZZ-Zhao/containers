@@ -21,7 +21,7 @@ requirements:
 arguments:
     - valueFrom:    "&& cp tandem.params taxonomy.xml mzmlFile.mzML fastaFile.fasta /tmp/XTandem && \
                     tandem /tmp/XTandem/tandem.params && \
-                    Tandem2XML /tmp/XTandem/tandemFile.tandem > output.pep.xml"
+                    Tandem2XML /tmp/XTandem/tandemFile.tandem > mzmlFile.pep.xml"
       position: 1
       shellQuote: false
 inputs:
@@ -46,6 +46,6 @@ inputs:
 outputs:
   XTandem_out_1:
     type: File
-    format: "http://edamontology.org/format_3247" # mzIdentML
+    format: "http://edamontology.org/format_3655" # pepXML
     outputBinding:
-      glob: "output.pep.xml"
+      glob: "mzmlFile.pep.xml"
