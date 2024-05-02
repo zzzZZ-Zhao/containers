@@ -1,7 +1,16 @@
 cwlVersion: v1.0
 label: ms_amanda
 class: CommandLineTool
-baseCommand: ["pwd", "&&", "/msamanda/MSAmanda"]
+baseCommand: ["/bin/bash", "-c"]
+arguments:
+  - valueFrom: >
+      "/msamanda/MSAmanda -s $(inputs.MS_Amanda_in_1.path) \
+      -d $(inputs.MS_Amanda_in_2.path) \
+      -e $(inputs.Settings) \
+      -f $(inputs.FileFormat) \
+      -o $(inputs.OutputFile) && \
+      gunzip output.mzid.gz"
+    shellQuote: false
 requirements:
   ShellCommandRequirement: {}
   DockerRequirement:
@@ -45,4 +54,4 @@ outputs:
     type: File
     format: "http://edamontology.org/format_3247" # mzIdentML
     outputBinding:
-      glob: /data/output.mzid.gz
+      glob: /data/output.mzid
