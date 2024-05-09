@@ -6,7 +6,7 @@ label: mzRecal.cwl
 requirements:
   DockerRequirement:
     dockerPull: workflomics/mzrecal:1.1.3
-baseCommand: "/usr/local/mzrecal/mzrecal"
+baseCommand: ["/usr/local/mzrecal/mzrecal", "-acceptprofile"]
 arguments:
   - position: 2
     prefix: -o
