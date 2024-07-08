@@ -5,6 +5,8 @@ class: CommandLineTool
 label: idconvert.cwl
 
 baseCommand: "/usr/local/tpp/bin/idconvert"
+arguments:
+  - "--pepXML"
 requirements:
   DockerRequirement:
     dockerPull: spctools/tpp
@@ -21,4 +23,4 @@ outputs:
     type: File
     format: "http://edamontology.org/format_3655" # pepXML
     outputBinding:
-      glob: "*.pep.xml"
+      glob: "*.pepXML"
