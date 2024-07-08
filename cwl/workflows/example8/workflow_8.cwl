@@ -21,7 +21,7 @@ steps:
       MS_Amanda_in_2: input_2
     out: [MS_Amanda_out_1]
   idconvert_02:
-    run: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/idconvert/idconvert_to_mzIdentML.cwl
+    run: https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/idconvert/idconvert_to_pepXML.cwl
     in:
       idconvert_in_1: MS_Amanda_01/MS_Amanda_out_1
     out: [idconvert_out_1]

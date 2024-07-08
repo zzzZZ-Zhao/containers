@@ -14,7 +14,7 @@ arguments:
 requirements:
   ShellCommandRequirement: {}
   DockerRequirement:
-    dockerPull: msamanda:latest
+    dockerPull: workflomics/msamanda:latest
     dockerOutputDirectory: /data
 
 inputs:
