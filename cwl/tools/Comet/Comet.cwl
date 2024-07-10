@@ -49,6 +49,8 @@ outputs:
       format: "http://edamontology.org/format_3247" # mzIdentML
       outputBinding:
         glob: "*.mzid"
-
-
-      
+    Comet_out_3: 
+      type: File
+      format: "http://edamontology.org/format_3475" # tsv
+      outputBinding:
+        glob: "*.txt"
