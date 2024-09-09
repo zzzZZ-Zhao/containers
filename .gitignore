@@ -150,3 +150,10 @@ make_input_template.py
 *.log
 *.sif
 
+##############################
+# APE files #
+##############################
+
+solutions.txt
+candidate_workflow_*
+domain-annotations/proteomics/UseCases-Demo/*

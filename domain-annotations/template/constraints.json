@@ -1,0 +1,13 @@
+{
+    "constraints": [
+      {
+        "constraintid": "not_repeat_op",
+        "parameters": [
+          {
+            "operation_0004": ["operation_0004"]
+          }
+        ]
+      }
+    ]
+  }
+  
