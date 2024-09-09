@@ -1,0 +1,16 @@
+input1:
+  class: File
+  format: "http://edamontology.org/format_3244" # mzML
+  path: set_full_path_to_the_file_with_extension_here
+input2:
+  class: File
+  format: "http://edamontology.org/format_1929" # FASTA
+  path: set_full_path_to_the_file_with_extension_here
+input3:
+  class: File
+  format: "http://edamontology.org/format_2196_plain" # OBO format_p
+  path: set_full_path_to_the_file_with_extension_here/go.obo
+input4:
+  class: File
+  format: "http://edamontology.org/format_3475_plain" # TSV_p
+  path: set_full_path_to_the_file_with_extension_here/goa_human.gaf

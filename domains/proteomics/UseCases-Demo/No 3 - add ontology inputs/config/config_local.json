@@ -1,0 +1,71 @@
+{
+  "ontology_path": "/Users/vedran/git/Workflomics_repo/domain-annotations/edam.owl",
+  "ontologyPrefixIRI": "http://edamontology.org/",
+  "toolsTaxonomyRoot": "operation_0004",
+  "dataDimensionsTaxonomyRoots": [
+    "data_0006",
+    "format_1915"
+  ],
+  "tool_annotations_path": "/Users/vedran/git/Workflomics_repo/domain-annotations/WombatP_tools/bio.tools.json",
+  "strict_tool_annotations": "true",
+  "constraints_path": "/Users/vedran/git/Workflomics_repo/domain-annotations/WombatP_tools/constraints.json",
+  "timeout_sec": "120",
+  "solutions_dir_path": "/Users/vedran/git/Workflomics_repo/domain-annotations/WombatP_tools/",
+  "solution_length": {
+    "min": 3,
+    "max": 10
+  },
+  "solutions": "10",
+  "number_of_execution_scripts": "0",
+  "number_of_generated_graphs": "10",
+  "number_of_cwl_files": "10",
+  "debug_mode": "false",
+  "use_workflow_input": "all",
+  "use_all_generated_data": "one",
+  "tool_seq_repeat": "false",
+  "inputs": [
+    {
+      "data_0006": [
+        "data_0943"
+      ],
+      "format_1915": [
+        "format_3244"
+      ]
+    },
+    {
+      "data_0006": [
+        "data_2976"
+      ],
+      "format_1915": [
+        "format_1929"
+      ]
+    },
+    {
+      "data_0006": [
+        "data_0582"
+      ],
+      "format_1915": [
+        "format_2196"
+      ]
+    },
+    {
+      "data_0006": [
+        "data_0916"
+      ],
+      "format_1915": [
+        "format_3475"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "data_0006": [
+        "data_0006"
+      ],
+      "format_1915": [
+        "format_3747",
+        "format_2330"
+      ]
+    }
+  ]
+}

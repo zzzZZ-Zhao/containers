@@ -9,7 +9,7 @@
     "biotools:GOEnrichment",
     "biotools:gProfiler",
     "biotools:XTandem",
-    "protXml2IdList",
     "biotools:ms_amanda",
-    "biotools:msfragger"
+    "biotools:msfragger",
+    "protXml2IdList"
 ]

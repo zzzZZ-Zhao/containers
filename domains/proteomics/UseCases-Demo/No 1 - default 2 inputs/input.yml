@@ -1,0 +1,8 @@
+input1:
+  class: File
+  format: "http://edamontology.org/format_3244" # mzML
+  path: set_full_path_to_the_file_with_extension_here
+input2:
+  class: File
+  format: "http://edamontology.org/format_1929" # FASTA
+  path: set_full_path_to_the_file_with_extension_here
