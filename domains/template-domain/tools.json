@@ -1,0 +1,114 @@
+{
+  "functions": [
+    {
+      "outputs": [
+        {
+          "format_1915": ["http://edamontology.org/format_3655"],
+          "data_0006": ["http://edamontology.org/data_0945"]
+        },
+        {
+          "format_1915": ["http://edamontology.org/format_3247"],
+          "data_0006": ["http://edamontology.org/data_0945"]
+        },
+        {
+          "format_1915": ["http://edamontology.org/format_3475"],
+          "data_0006": ["http://edamontology.org/data_0945"]
+        }
+      ],
+      "inputs": [
+        {
+          "format_1915": [
+            "http://edamontology.org/format_3244",
+            "http://edamontology.org/format_3654",
+            "http://edamontology.org/format_3651"
+          ],
+          "data_0006": ["http://edamontology.org/data_0943"]
+        },
+        {
+          "format_1915": ["http://edamontology.org/format_1929"],
+          "data_0006": ["http://edamontology.org/data_2976"]
+        }
+      ],
+      "taxonomyOperations": ["http://edamontology.org/operation_3646"],
+
+      "implementation": {
+        "cwl_reference": "https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/Comet/Comet.cwl"
+      },
+      "label": "Comet",
+      "id": "Comet"
+    },
+    {
+      "outputs": [
+        {
+          "format_1915": ["http://edamontology.org/format_3655"],
+          "data_0006": ["http://edamontology.org/data_0945"]
+        },
+        {
+          "format_1915": ["http://edamontology.org/format_2331"],
+          "data_0006": ["http://edamontology.org/data_2048"]
+        }
+      ],
+      "inputs": [
+        {
+          "format_1915": ["http://edamontology.org/format_3655"],
+          "data_0006": ["http://edamontology.org/data_0945"]
+        },
+        {
+          "format_1915": ["http://edamontology.org/format_3244"],
+          "data_0006": ["http://edamontology.org/data_0943"]
+        },
+        {
+          "format_1915": ["http://edamontology.org/format_1929"],
+          "data_0006": ["http://edamontology.org/data_2976"]
+        }
+      ],
+      "taxonomyOperations": [
+        "http://edamontology.org/operation_3664",
+        "http://edamontology.org/operation_3675",
+        "http://edamontology.org/operation_3631",
+        "http://edamontology.org/operation_3649"
+      ],
+
+      "implementation": {
+        "cwl_reference": "https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/PeptideProphet/PeptideProphet.cwl"
+      },
+      "label": "PeptideProphet",
+      "id": "PeptideProphet"
+    },
+    {
+      "outputs": [
+        {
+          "format_1915": ["http://edamontology.org/format_3747"],
+          "data_0006": ["http://edamontology.org/data_0945"]
+        },
+        {
+          "format_1915": ["http://edamontology.org/format_3475"],
+          "data_0006": ["http://edamontology.org/data_0945"]
+        }
+      ],
+      "inputs": [
+        {
+          "format_1915": ["http://edamontology.org/format_3655"],
+          "data_0006": ["http://edamontology.org/data_0945"]
+        },
+        {
+          "format_1915": ["http://edamontology.org/format_1929"],
+          "data_0006": ["http://edamontology.org/data_2976"]
+        }
+      ],
+      "taxonomyOperations": [
+        "http://edamontology.org/operation_3664",
+        "http://edamontology.org/operation_3767",
+        "http://edamontology.org/operation_3648",
+        "http://edamontology.org/operation_3644",
+        "http://edamontology.org/operation_3695"
+      ],
+
+      "implementation": {
+        "cwl_reference": "https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/ProteinProphet/ProteinProphet.cwl"
+      },
+      "label": "ProteinProphet",
+      "id": "ProteinProphet"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+    "biotools:Comet",
+    "biotools:PeptideProphet",
+    "biotools:ProteinProphet",
+    "biotools:StPeter",
+    "biotools:mzRecal",
+    "biotools:idconvert",
+    "biotools:msconvert",
+    "biotools:GOEnrichment",
+    "biotools:gProfiler",
+    "biotools:XTandem",
+    "biotools:ms_amanda",
+    "biotools:msfragger",
+    "protXml2IdList"
+]

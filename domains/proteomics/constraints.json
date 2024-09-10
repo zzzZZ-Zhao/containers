@@ -1,0 +1,49 @@
+{
+    "constraints": [
+        {
+            "constraintid": "not_connected_op",
+            "parameters": [
+                {
+                    "operation_0004": [
+                        "PeptideProphet"
+                    ]
+                },
+                {
+                    "operation_0004": [
+                        "PeptideProphet"
+                    ]
+                }
+            ]
+        },
+        {
+            "constraintid": "not_connected_op",
+            "parameters": [
+                {
+                    "operation_0004": [
+                        "operation_0335"
+                    ]
+                },
+                {
+                    "operation_0004": [
+                        "operation_0335"
+                    ]
+                }
+            ]
+        },
+        {
+            "constraintid": "connected_op",
+            "parameters": [
+                {
+                    "operation_0004": [
+                        "PeptideProphet"
+                    ]
+                },
+                {
+                    "operation_0004": [
+                        "ProteinProphet"
+                    ]
+                }
+            ]
+        }
+    ]
+}
