@@ -156,4 +156,4 @@ make_input_template.py
 
 solutions.txt
 candidate_workflow_*
-domain-annotations/proteomics/UseCases-Demo/*
+domains/proteomics/UseCases-Demo/*
